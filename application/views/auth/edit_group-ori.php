@@ -1,4 +1,4 @@
-<!-- <h1><?php echo lang('edit_group_heading');?></h1> -->
+<h1><?php echo lang('edit_group_heading');?></h1>
 <p><?php echo lang('edit_group_subheading');?></p>
 
 <div id="infoMessage"><?php echo $message;?></div>
@@ -15,6 +15,6 @@
             <?php echo form_input($group_description);?>
       </p>
 
-      <p><?php echo form_submit('submit', lang('edit_group_submit_btn')) . ' ' . form_button('button', 'Close', 'onClick="window.location.href = \''.site_url().'auth'.'\'"');?></p>
+      <p><?php echo form_submit('submit', lang('edit_group_submit_btn'));?></p>
 
 <?php echo form_close();?>

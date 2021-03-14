@@ -1,4 +1,4 @@
-<!-- <h1><?php echo lang('deactivate_heading');?></h1> -->
+<h1><?php echo lang('deactivate_heading');?></h1>
 <p><?php echo sprintf(lang('deactivate_subheading'), $user->{$identity}); ?></p>
 
 <?php echo form_open("auth/deactivate/".$user->id);?>
@@ -13,6 +13,6 @@
   <?php echo form_hidden($csrf); ?>
   <?php echo form_hidden(['id' => $user->id]); ?>
 
-  <p><?php echo form_submit('submit', lang('deactivate_submit_btn')) . ' ' . form_button('button', 'Close', 'onClick="window.location.href = \''.site_url().'auth'.'\'"');?></p>
+  <p><?php echo form_submit('submit', lang('deactivate_submit_btn'));?></p>
 
 <?php echo form_close();?>
