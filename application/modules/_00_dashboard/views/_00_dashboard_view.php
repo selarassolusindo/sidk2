@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 3 | Dashboard</title>
+        <!-- <title>AdminLTE 3 | Dashboard</title> -->
+        <title><?php echo SITE_NAME; ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
@@ -41,16 +42,16 @@
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="<?php echo base_url(); ?>assets/adminlte/#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
-                    <li class="nav-item d-none d-sm-inline-block">
+                    <!-- <li class="nav-item d-none d-sm-inline-block">
                         <a href="<?php echo base_url(); ?>assets/adminlte/index3.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item d-none d-sm-inline-block">
+                    </li> -->
+                    <!-- <li class="nav-item d-none d-sm-inline-block">
                         <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- SEARCH FORM -->
-                <form class="form-inline ml-3">
+                <!-- <form class="form-inline ml-3">
                     <div class="input-group input-group-sm">
                         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -59,72 +60,16 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form> -->
 
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Messages Dropdown Menu -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="<?php echo base_url(); ?>assets/adminlte/#">
-                            <i class="far fa-comments"></i>
-                            <span class="badge badge-danger navbar-badge">3</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <a href="<?php echo base_url(); ?>assets/adminlte/#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            Brad Diesel
-                                            <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">Call me whenever you can...</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="<?php echo base_url(); ?>assets/adminlte/#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            John Pierce
-                                            <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">I got your message bro</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="<?php echo base_url(); ?>assets/adminlte/#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            Nora Silvester
-                                            <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">The subject goes here</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="<?php echo base_url(); ?>assets/adminlte/#" class="dropdown-item dropdown-footer">See All Messages</a>
-                        </div>
-                    </li>
+
 
                     <!-- Notifications Dropdown Menu -->
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="<?php echo base_url(); ?>assets/adminlte/#">
                             <i class="far fa-bell"></i>
                             <span class="badge badge-warning navbar-badge">15</span>
@@ -149,13 +94,13 @@
                             <div class="dropdown-divider"></div>
                             <a href="<?php echo base_url(); ?>assets/adminlte/#" class="dropdown-item dropdown-footer">See All Notifications</a>
                         </div>
-                    </li>
+                    </li> -->
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="<?php echo base_url(); ?>assets/adminlte/#" role="button">
                             <i class="fas fa-th-large"></i>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
 
             </nav>
@@ -165,10 +110,12 @@
             <aside class="main-sidebar elevation-4 sidebar-light-lightblue">
 
                 <!-- Brand Logo -->
-                <a href="<?php echo base_url(); ?>assets/adminlte/index3.html" class="brand-link">
+                <!-- <a href="<?php echo base_url(); ?>assets/adminlte/index3.html" class="brand-link"> -->
+                <a href="<?php echo site_url(); ?>" class="brand-link">
                     <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                    <span class="brand-text font-weight-light">AdminLTE 3</span>
+                    <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> -->
+                    <span class="brand-text font-weight-light"><?php echo SITE_NAME; ?></span>
                 </a>
 
                 <!-- Sidebar -->
@@ -176,10 +123,11 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                            <!-- <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
                         </div>
                         <div class="info">
-                            <a href="<?php echo base_url(); ?>assets/adminlte/#" class="d-block">Alexander Pierce</a>
+                            <!-- <a href="<?php echo base_url(); ?>assets/adminlte/#" class="d-block">Alexander Pierce</a> -->
+                            <a href="#" class="d-block"><?php echo 'username'; ?></a>
                         </div>
                     </div>
 
@@ -188,19 +136,22 @@
                         <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-compact" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                             with font-awesome or any other icon font library -->
-                            <li class="nav-item has-treeview menu-open">
-                                <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link active">
+                            <!-- dashboard -->
+                            <!-- <li class="nav-item has-treeview menu-open"> -->
+                            <!-- <li class="nav-item has-treeview"> -->
+                            <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>" class="nav-link active">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
+                                    DASHBOARD
+                                    <!-- <i class="right fas fa-angle-left"></i> -->
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview">
+                                <!-- <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="<?php echo base_url(); ?>assets/adminlte/./index.html" class="nav-link active">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard v1</p>
+                                            <i class="fas fa-user-cog nav-icon"></i>
+                                            <p>User</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -215,9 +166,65 @@
                                             <p>Dashboard v3</p>
                                         </a>
                                     </li>
+                                </ul> -->
+                            </li>
+
+                            <?php if ($this->ion_auth->logged_in()) { ?>
+                            <!-- setup -->
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-cog"></i>
+                                    <p>
+                                    SETUP
+                                    <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <i class="fas fa-user-cog nav-icon"></i>
+                                            <p>User</p>
+                                        </a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="<?php echo base_url(); ?>assets/adminlte/./index2.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v2</p>
+                                        </a>
+                                    </li> -->
+                                    <!-- <li class="nav-item">
+                                        <a href="<?php echo base_url(); ?>assets/adminlte/./index3.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard v3</p>
+                                        </a>
+                                    </li> -->
                                 </ul>
                             </li>
+                            <?php } ?>
+
+                            <?php if ($this->session->userdata('user_id') != "") { ?>
+                            <!-- logout -->
                             <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>auth/logout" class="nav-link">
+                                    <i class="fas fa-sign-out-alt nav-icon"></i>
+                                    <p>
+                                    LOGOUT
+                                    </p>
+                                </a>
+                            </li>
+                            <?php } else { ?>
+                            <!-- login -->
+                            <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>auth/login" class="nav-link">
+                                    <i class="fas fa-sign-in-alt nav-icon"></i>
+                                    <p>
+                                    LOGIN
+                                    </p>
+                                </a>
+                            </li>
+                            <?php } ?>
+
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/pages/widgets.html" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
                                     <p>
@@ -225,8 +232,8 @@
                                     <span class="right badge badge-danger">New</span>
                                     </p>
                                 </a>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-copy"></i>
                                     <p>
@@ -279,8 +286,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-chart-pie"></i>
                                     <p>
@@ -308,8 +315,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
                                 <p>
@@ -367,8 +374,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
                                     <p>
@@ -402,8 +409,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-table"></i>
                                     <p>
@@ -431,9 +438,9 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-header">EXAMPLES</li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-header">EXAMPLES</li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/pages/calendar.html" class="nav-link">
                                     <i class="nav-icon far fa-calendar-alt"></i>
                                     <p>
@@ -441,16 +448,16 @@
                                         <span class="badge badge-info right">2</span>
                                     </p>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/pages/gallery.html" class="nav-link">
                                     <i class="nav-icon far fa-image"></i>
                                     <p>
                                         Gallery
                                     </p>
                                 </a>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon far fa-envelope"></i>
                                     <p>
@@ -478,8 +485,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-book"></i>
                                     <p>
@@ -537,8 +544,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
                                     <p>
@@ -620,22 +627,22 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-header">MISCELLANEOUS</li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-header">MISCELLANEOUS</li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/https://adminlte.io/docs/3.0" class="nav-link">
                                     <i class="nav-icon fas fa-file"></i>
                                     <p>Documentation</p>
                                 </a>
-                            </li>
-                            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
                                     <p>Level 1</p>
                                 </a>
-                            </li>
-                            <li class="nav-item has-treeview">
+                            </li> -->
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon fas fa-circle"></i>
                                     <p>
@@ -686,32 +693,32 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
                                     <p>Level 1</p>
                                 </a>
-                            </li>
-                            <li class="nav-header">LABELS</li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-header">LABELS</li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon far fa-circle text-danger"></i>
                                     <p class="text">Important</p>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon far fa-circle text-warning"></i>
                                     <p>Warning</p>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>assets/adminlte/#" class="nav-link">
                                     <i class="nav-icon far fa-circle text-info"></i>
                                     <p>Informational</p>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -732,10 +739,10 @@
                                 <h1 class="m-0 text-dark">Dashboard</h1>
                             </div><!-- /.col -->
                             <div class="col-sm-6">
-                                <ol class="breadcrumb float-sm-right">
+                                <!-- <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>assets/adminlte/#">Home</a></li>
                                     <li class="breadcrumb-item active">Dashboard v1</li>
-                                </ol>
+                                </ol> -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->
