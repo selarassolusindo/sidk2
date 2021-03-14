@@ -10,7 +10,18 @@
             <?php echo form_input($first_name);?>
       </p>
 
-      <p>
+      <?php
+      if($identity_column!=='email') {
+          echo '<p>';
+          echo lang('edit_user_identity_label', 'identity');
+          echo '<br />';
+          echo form_error('identity');
+          echo form_input($identity);
+          echo '</p>';
+      }
+      ?>
+
+      <!-- <p>
             <?php echo lang('edit_user_lname_label', 'last_name');?> <br />
             <?php echo form_input($last_name);?>
       </p>
@@ -23,7 +34,7 @@
       <p>
             <?php echo lang('edit_user_phone_label', 'phone');?> <br />
             <?php echo form_input($phone);?>
-      </p>
+      </p> -->
 
       <p>
             <?php echo lang('edit_user_password_label', 'password');?> <br />

@@ -65,7 +65,7 @@
                             <!-- <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block"><?php echo 'username'; ?></a>
+                            <a href="#" class="d-block"><?php echo $this->session->userdata('fullName'); ?></a>
                         </div>
                     </div>
 
@@ -154,7 +154,7 @@
                             ?>
                             <li class="nav-item has-treeview <?php echo (in_array($uri, $uri_utility) ? 'menu-open' : ''); ?>">
                                 <a href="#" class="nav-link <?php echo (in_array($uri, $uri_utility) ? 'active' : ''); ?>">
-                                    <i class="nav-icon fas fa-cog"></i>
+                                    <i class="fas fa-tools nav-icon"></i>
                                     <p>
                                     UTILITY
                                     <i class="right fas fa-angle-left"></i>
@@ -164,7 +164,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>auth/change_password/<?php echo $this->session->userdata('user_id'); ?>" class="nav-link <?php echo (in_array($uri, $uri_utility) ? 'active' : ''); ?>">
-                                            <i class="fas fa-user-cog nav-icon"></i>
+                                            <i class="fas fa-key nav-icon"></i>
                                             <p>Change Password</p>
                                         </a>
                                     </li>
