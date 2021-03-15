@@ -187,21 +187,6 @@
 
                             <?php if ($this->ion_auth->logged_in()) { ?>
 
-                            <?php
-                            // menyiapkan variabel uri untuk menu-open dan active
-                            $uri = '';
-                            $i = 1;
-                            foreach ($this->uri->segments as $segment) {
-                                if ($i++ <= 2) {
-                                    $uri .= $segment . '/';
-                                } else {
-                                    break;
-                                }
-                            }
-                            $uri = substr($uri, 0, -1);
-                            // echo $uri;
-                            ?>
-
                             <!-- setup -->
                             <li class="nav-item has-treeview
                                 <?php
@@ -257,6 +242,15 @@
                                         <a href="<?php echo site_url(); ?>_42_provinsi" class="nav-link <?php echo $this->uri->segment(1) == '_42_provinsi' ? 'active' : ''; ?>">
                                             <i class="fas fa-globe-asia nav-icon"></i>
                                             <p>Provinsi</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- kabupaten -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_43_kabupaten" class="nav-link <?php echo $this->uri->segment(1) == '_43_kabupaten' ? 'active' : ''; ?>">
+                                            <i class="fas fa-globe-asia nav-icon"></i>
+                                            <p>Kabupaten</p>
                                         </a>
                                     </li>
                                 </ul>
