@@ -380,7 +380,7 @@
                             <!-- kartu keluarga -->
                             <li class="nav-item">
                                 <a href="<?php echo site_url(); ?>_07_kk" class="nav-link">
-                                    <i class="far fa-address-book nav-icon"></i>
+                                    <i class="far fa-address-card nav-icon"></i>
                                     <p>
                                     KARTU KELUARGA
                                     </p>
