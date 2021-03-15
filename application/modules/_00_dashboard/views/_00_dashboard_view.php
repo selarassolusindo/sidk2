@@ -28,6 +28,103 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/summernote/summernote-bs4.css">
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+        <style>
+            .pagination {
+                display: inline-block;
+                padding-left: 0;
+                margin: 20px 0;
+                border-radius: 4px;
+            }
+            .pagination > li {
+                display: inline;
+            }
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #428bca;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                color: #2a6496;
+                background-color: #eee;
+                border-color: #ddd;
+            }
+            .pagination > .active > a,
+            .pagination > .active > span,
+            .pagination > .active > a:hover,
+            .pagination > .active > span:hover,
+            .pagination > .active > a:focus,
+            .pagination > .active > span:focus {
+                z-index: 2;
+                color: #fff;
+                cursor: default;
+                background-color: #428bca;
+                border-color: #428bca;
+            }
+            .pagination > .disabled > span,
+            .pagination > .disabled > span:hover,
+            .pagination > .disabled > span:focus,
+            .pagination > .disabled > a,
+            .pagination > .disabled > a:hover,
+            .pagination > .disabled > a:focus {
+                color: #999;
+                cursor: not-allowed;
+                background-color: #fff;
+                border-color: #ddd;
+            }
+            .pagination-lg > li > a,
+            .pagination-lg > li > span {
+                padding: 10px 16px;
+                font-size: 18px;
+            }
+            .pagination-lg > li:first-child > a,
+            .pagination-lg > li:first-child > span {
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+            .pagination-lg > li:last-child > a,
+            .pagination-lg > li:last-child > span {
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+            .pagination-sm > li > a,
+            .pagination-sm > li > span {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            .pagination-sm > li:first-child > a,
+            .pagination-sm > li:first-child > span {
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+            .pagination-sm > li:last-child > a,
+            .pagination-sm > li:last-child > span {
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+        </style>
+
     </head>
 
     <body class="hold-transition sidebar-mini layout-fixed text-sm">
@@ -90,7 +187,6 @@
 
                             <?php if ($this->ion_auth->logged_in()) { ?>
 
-
                             <?php
                             // menyiapkan variabel uri untuk menu-open dan active
                             $uri = '';
@@ -107,69 +203,114 @@
                             ?>
 
                             <!-- setup -->
-                            <?php
-                            $uri_setup = array(
-                                'auth',
-                                'auth/create_user',
-                                'auth/edit_user',
-                                'auth/create_group',
-                                'auth/edit_group',
-                                'auth/deactivate',
-                                '_36_warganegara',
-                                '_37_hubungan',
-                                '_38_status',
-                                '_39_pekerjaan',
-                                '_40_pendidikan',
-                                '_41_agama',
-                                '_42_provinsi',
-                                '_43_kabupaten',
-                                '_44_kecamatan',
-                                '_45_desa',
-                                );
-                            ?>
-                            <li class="nav-item has-treeview <?php echo (in_array($uri, $uri_setup) ? 'menu-open' : ''); ?>">
-                                <a href="#" class="nav-link <?php echo (in_array($uri, $uri_setup) ? 'active' : ''); ?>">
+                            <li class="nav-item has-treeview
+                                <?php
+                                switch ($this->uri->segment(1)) {
+                                    case 'auth':
+                                    case '_36_warganegara':
+                                    case '_37_hubungan':
+                                    case '_38_status':
+                                    case '_39_pekerjaan':
+                                    case '_40_pendidikan':
+                                    case '_41_agama':
+                                    case '_42_provinsi':
+                                    case '_43_kabupaten':
+                                    case '_44_kecamatan':
+                                    case '_45_desa':
+                                        echo 'menu-open';
+                                        break;
+                                    default:
+                                        echo '';
+                                }
+                                ?>
+                            ">
+                                <a href="#" class="nav-link
+                                    <?php
+                                    switch ($this->uri->segment(1)) {
+                                        case 'auth':
+                                        case '_36_warganegara':
+                                        case '_37_hubungan':
+                                        case '_38_status':
+                                        case '_39_pekerjaan':
+                                        case '_40_pendidikan':
+                                        case '_41_agama':
+                                        case '_42_provinsi':
+                                        case '_43_kabupaten':
+                                        case '_44_kecamatan':
+                                        case '_45_desa':
+                                            echo 'active';
+                                            break;
+                                        default:
+                                            echo '';
+                                    }
+                                    ?>
+                                ">
                                     <i class="nav-icon fas fa-cog"></i>
                                     <p>
                                     SETUP
                                     <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
+                                <!-- provinsi -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_42_provinsi" class="nav-link <?php echo $this->uri->segment(1) == '_42_provinsi' ? 'active' : ''; ?>">
+                                            <i class="fas fa-globe-asia nav-icon"></i>
+                                            <p>Provinsi</p>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!-- users -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>auth" class="nav-link <?php echo (in_array($uri, $uri_setup) ? 'active' : ''); ?>">
+                                        <a href="<?php echo site_url(); ?>auth" class="nav-link <?php echo ($this->uri->segment(1) == 'auth' and $this->uri->total_segments() == 1) ? 'active' : ''; ?>">
                                             <i class="fas fa-user-cog nav-icon"></i>
                                             <p>Users</p>
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-
-                            <!-- utility -->
-                            <?php
-                            $uri_utility = array(
-                                'auth/change_password',
-                                );
-                            ?>
-                            <li class="nav-item has-treeview <?php echo (in_array($uri, $uri_utility) ? 'menu-open' : ''); ?>">
-                                <a href="#" class="nav-link <?php echo (in_array($uri, $uri_utility) ? 'active' : ''); ?>">
-                                    <i class="fas fa-tools nav-icon"></i>
-                                    <p>
-                                    UTILITY
-                                    <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
                                 <!-- change password -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>auth/change_password/<?php echo $this->session->userdata('user_id'); ?>" class="nav-link <?php echo (in_array($uri, $uri_utility) ? 'active' : ''); ?>">
+                                        <a href="<?php echo site_url(); ?>auth/change_password/<?php echo $this->session->userdata('user_id'); ?>" class="nav-link <?php echo $this->uri->segment(2) == 'change_password' ? 'active' : ''; ?>">
                                             <i class="fas fa-key nav-icon"></i>
                                             <p>Change Password</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+
+                            <!-- utility -->
+                            <!-- <li class="nav-item has-treeview
+                                <?php
+                                switch ($this->uri->segment(1)) {
+                                    case 'change_password':
+                                        echo 'menu-open';
+                                        break;
+                                    default:
+                                        echo '';
+                                }
+                                ?>
+                            ">
+                                <a href="#" class="nav-link
+                                    <?php
+                                    switch ($this->uri->segment(1)) {
+                                        case 'change_password':
+                                            echo 'active';
+                                            break;
+                                        default:
+                                            echo '';
+                                    }
+                                    ?>
+                                ">
+                                    <i class="fas fa-tools nav-icon"></i>
+                                    <p>
+                                    UTILITY
+                                    <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+
+                            </li> -->
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>
