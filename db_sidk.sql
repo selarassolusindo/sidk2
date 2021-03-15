@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2021 at 09:15 PM
+-- Generation Time: Mar 15, 2021 at 11:38 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -90,7 +90,31 @@ CREATE TABLE `t06_penduduk` (
 
 INSERT INTO `t06_penduduk` (`idpenduduk`, `NoUrut`, `Nama`, `NIK`, `JenisKelamin`, `TempatLahir`, `TanggalLahir`, `Agama`, `Pendidikan`, `Pekerjaan`, `StatusKawin`, `HubunganKeluarga`, `WargaNegara`, `NoPaspor`, `NoKitasKitap`, `NamaAyah`, `NamaIbu`, `idinduk`, `idkk`, `iduser`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Dodo Ananto', '3515112412740001', 'LAKI-LAKI', 154, '1974-12-24', 1, 4, 3, 1, 1, 1, '-', '-', 'Soetijono', 'Sri Prihati', 1, 1, 1, '2021-03-12 02:00:00', '2021-03-15 11:40:20'),
-(2, 2, 'Rini Ambarwati', '3515116808740005', 'PEREMPUAN', 262, '1974-08-28', 1, 3, 2, 1, 3, 1, '-', '-', 'Adi Suwarno', 'Patmiwati', 0, NULL, 0, '2021-03-15 11:41:58', '2021-03-15 11:48:50');
+(2, 2, 'Rini Ambarwatix', '3515116808740005', 'PEREMPUAN', 262, '1974-08-28', 1, 3, 2, 1, 3, 1, '-', '-', 'Adi Suwarno', 'Patmiwati', 0, NULL, 1, '2021-03-15 11:41:58', '2021-03-15 16:32:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t07_kk`
+--
+
+CREATE TABLE `t07_kk` (
+  `idkk` int(11) NOT NULL,
+  `Nomor` varchar(25) NOT NULL,
+  `Nama` int(11) NOT NULL,
+  `Alamat` varchar(100) NOT NULL,
+  `RT` varchar(5) NOT NULL,
+  `RW` varchar(5) NOT NULL,
+  `Kelurahan` int(11) NOT NULL,
+  `Kecamatan` int(11) NOT NULL,
+  `Kabupaten` int(11) NOT NULL,
+  `Provinsi` int(11) NOT NULL,
+  `KodePos` varchar(10) NOT NULL,
+  `Tanggal` date NOT NULL,
+  `idusers` tinyint(4) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -87458,7 +87482,7 @@ CREATE TABLE `t46_users` (
 --
 
 INSERT INTO `t46_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615812301, 1, 'Admin', NULL, NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615824474, 1, 'Admin', NULL, NULL, NULL),
 (2, '::1', 'dodo', '$2y$10$DhC9If3ZtQ8WxJEwaoSzX.7H3bQTTyEjtvcfcbQyDxomgTiS5hw7m', 'e@e.e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615481968, 1615733948, 1, 'Dodo', NULL, NULL, NULL),
 (3, '::1', 'adi', '$2y$10$hzjCMjtQt6SNmMf2KFdelepGfN6FW37q39dIXWe6Y3/mpJcLLfY0O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615728601, 1615731303, 1, 'Adi', NULL, NULL, NULL);
 
@@ -87535,6 +87559,12 @@ ALTER TABLE `t05_warga`
 --
 ALTER TABLE `t06_penduduk`
   ADD PRIMARY KEY (`idpenduduk`);
+
+--
+-- Indexes for table `t07_kk`
+--
+ALTER TABLE `t07_kk`
+  ADD PRIMARY KEY (`idkk`);
 
 --
 -- Indexes for table `t36_warganegara`
@@ -87642,6 +87672,12 @@ ALTER TABLE `t05_warga`
 --
 ALTER TABLE `t06_penduduk`
   MODIFY `idpenduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `t07_kk`
+--
+ALTER TABLE `t07_kk`
+  MODIFY `idkk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t36_warganegara`

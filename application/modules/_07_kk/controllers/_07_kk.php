@@ -67,7 +67,10 @@ class _07_kk extends CI_Controller
 		'created_at' => $row->created_at,
 		'updated_at' => $row->updated_at,
 	    );
-            $this->load->view('_07_kk/t07_kk_read', $data);
+            // $this->load->view('_07_kk/t07_kk_read', $data);
+            $data['_view'] = '_07_kk/t07_kk_read';
+            $data['_caption'] = 'Kartu Keluarga';
+            $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_07_kk'));
@@ -76,26 +79,32 @@ class _07_kk extends CI_Controller
 
     public function create()
     {
+        $this->load->model('_06_penduduk/_06_penduduk_model');
+        $penduduk = $this->_06_penduduk_model->get_all();
         $data = array(
             'button' => 'Create',
             'action' => site_url('_07_kk/create_action'),
-	    'idkk' => set_value('idkk'),
-	    'Nomor' => set_value('Nomor'),
-	    'Nama' => set_value('Nama'),
-	    'Alamat' => set_value('Alamat'),
-	    'RT' => set_value('RT'),
-	    'RW' => set_value('RW'),
-	    'Kelurahan' => set_value('Kelurahan'),
-	    'Kecamatan' => set_value('Kecamatan'),
-	    'Kabupaten' => set_value('Kabupaten'),
-	    'Provinsi' => set_value('Provinsi'),
-	    'KodePos' => set_value('KodePos'),
-	    'Tanggal' => set_value('Tanggal'),
-	    'idusers' => set_value('idusers'),
-	    'created_at' => set_value('created_at'),
-	    'updated_at' => set_value('updated_at'),
-	);
-        $this->load->view('_07_kk/t07_kk_form', $data);
+    	    'idkk' => set_value('idkk'),
+    	    'Nomor' => set_value('Nomor'),
+    	    'Nama' => set_value('Nama'),
+    	    'Alamat' => set_value('Alamat'),
+    	    'RT' => set_value('RT'),
+    	    'RW' => set_value('RW'),
+    	    'Kelurahan' => set_value('Kelurahan'),
+    	    'Kecamatan' => set_value('Kecamatan'),
+    	    'Kabupaten' => set_value('Kabupaten'),
+    	    'Provinsi' => set_value('Provinsi'),
+    	    'KodePos' => set_value('KodePos'),
+    	    'Tanggal' => set_value('Tanggal'),
+    	    // 'idusers' => set_value('idusers'),
+    	    // 'created_at' => set_value('created_at'),
+    	    // 'updated_at' => set_value('updated_at'),
+            'pendudukData' => $penduduk,
+            );
+        // $this->load->view('_07_kk/t07_kk_form', $data);
+        $data['_view'] = '_07_kk/t07_kk_form';
+        $data['_caption'] = 'Kartu Keluarga';
+        $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
     public function create_action()
@@ -117,9 +126,9 @@ class _07_kk extends CI_Controller
 		'Provinsi' => $this->input->post('Provinsi',TRUE),
 		'KodePos' => $this->input->post('KodePos',TRUE),
 		'Tanggal' => $this->input->post('Tanggal',TRUE),
-		'idusers' => $this->input->post('idusers',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
+        'idusers' => $this->session->userdata('user_id'),
+		// 'created_at' => $this->input->post('created_at',TRUE),
+		// 'updated_at' => $this->input->post('updated_at',TRUE),
 	    );
 
             $this->_07_kk_model->insert($data);
@@ -148,11 +157,14 @@ class _07_kk extends CI_Controller
 		'Provinsi' => set_value('Provinsi', $row->Provinsi),
 		'KodePos' => set_value('KodePos', $row->KodePos),
 		'Tanggal' => set_value('Tanggal', $row->Tanggal),
-		'idusers' => set_value('idusers', $row->idusers),
-		'created_at' => set_value('created_at', $row->created_at),
-		'updated_at' => set_value('updated_at', $row->updated_at),
+		// 'idusers' => set_value('idusers', $row->idusers),
+		// 'created_at' => set_value('created_at', $row->created_at),
+		// 'updated_at' => set_value('updated_at', $row->updated_at),
 	    );
-            $this->load->view('_07_kk/t07_kk_form', $data);
+            // $this->load->view('_07_kk/t07_kk_form', $data);
+            $data['_view'] = '_07_kk/t07_kk_form';
+            $data['_caption'] = 'Kartu Keluarga';
+            $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_07_kk'));
@@ -178,9 +190,9 @@ class _07_kk extends CI_Controller
 		'Provinsi' => $this->input->post('Provinsi',TRUE),
 		'KodePos' => $this->input->post('KodePos',TRUE),
 		'Tanggal' => $this->input->post('Tanggal',TRUE),
-		'idusers' => $this->input->post('idusers',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
+		'idusers' => $this->session->userdata('user_id'),
+		// 'created_at' => $this->input->post('created_at',TRUE),
+		// 'updated_at' => $this->input->post('updated_at',TRUE),
 	    );
 
             $this->_07_kk_model->update($this->input->post('idkk', TRUE), $data);

@@ -174,7 +174,7 @@ class _06_penduduk extends CI_Controller
         		'NamaIbu' => $this->input->post('NamaIbu',TRUE),
         		// 'idinduk' => $this->input->post('idinduk',TRUE),
         		// 'idkk' => $this->input->post('idkk',TRUE),
-        		// 'iduser' => $this->input->post('iduser',TRUE),
+        		'iduser' => $this->session->userdata('user_id'),
         		// 'created_at' => $this->input->post('created_at',TRUE),
         		// 'updated_at' => $this->input->post('updated_at',TRUE),
         	    );
@@ -276,7 +276,7 @@ class _06_penduduk extends CI_Controller
         		'NamaIbu' => $this->input->post('NamaIbu',TRUE),
         		// 'idinduk' => $this->input->post('idinduk',TRUE),
         		// 'idkk' => $this->input->post('idkk',TRUE),
-        		// 'iduser' => $this->input->post('iduser',TRUE),
+                'iduser' => $this->session->userdata('user_id'),
         		// 'created_at' => $this->input->post('created_at',TRUE),
         		// 'updated_at' => $this->input->post('updated_at',TRUE),
         	    );

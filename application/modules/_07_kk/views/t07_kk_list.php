@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html>
     <head>
         <title>harviacode.com - codeigniter crud generator</title>
@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">T07_kk List</h2>
+        <h2 style="margin-top:0px">T07_kk List</h2> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <?php echo anchor(site_url('_07_kk/create'),'Create', 'class="btn btn-primary"'); ?>
@@ -27,7 +27,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
-                            <?php 
+                            <?php
                                 if ($q <> '')
                                 {
                                     ?>
@@ -80,12 +80,12 @@
 			<td><?php echo $_07_kk->created_at ?></td>
 			<td><?php echo $_07_kk->updated_at ?></td>
 			<td style="text-align:center" width="200px">
-				<?php 
-				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read'); 
-				echo ' | '; 
-				echo anchor(site_url('_07_kk/update/'.$_07_kk->idkk),'Update'); 
-				echo ' | '; 
-				echo anchor(site_url('_07_kk/delete/'.$_07_kk->idkk),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				<?php
+				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read');
+				echo ' | ';
+				echo anchor(site_url('_07_kk/update/'.$_07_kk->idkk),'Update');
+				echo ' | ';
+				echo anchor(site_url('_07_kk/delete/'.$_07_kk->idkk),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
 				?>
 			</td>
 		</tr>
@@ -103,5 +103,5 @@
                 <?php echo $pagination ?>
             </div>
         </div>
-    </body>
-</html>
+    <!-- </body>
+</html> -->
