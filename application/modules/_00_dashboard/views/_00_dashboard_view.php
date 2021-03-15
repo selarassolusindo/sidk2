@@ -377,6 +377,15 @@
                                     </p>
                                 </a>
                             </li>
+                            <!-- kartu keluarga -->
+                            <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>_07_kk" class="nav-link">
+                                    <i class="far fa-address-book nav-icon"></i>
+                                    <p>
+                                    KARTU KELUARGA
+                                    </p>
+                                </a>
+                            </li>
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>
