@@ -370,7 +370,7 @@
 
                             <!-- penduduk -->
                             <li class="nav-item">
-                                <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link">
+                                <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link <?php echo $this->uri->segment(1) == '_06_penduduk' ? 'active' : ''; ?>">
                                     <i class="far fa-address-book nav-icon"></i>
                                     <p>
                                     PENDUDUK
@@ -379,7 +379,7 @@
                             </li>
                             <!-- kartu keluarga -->
                             <li class="nav-item">
-                                <a href="<?php echo site_url(); ?>_07_kk" class="nav-link">
+                                <a href="<?php echo site_url(); ?>_07_kk" class="nav-link <?php echo $this->uri->segment(1) == '_07_kk' ? 'active' : ''; ?>">
                                     <i class="far fa-address-card nav-icon"></i>
                                     <p>
                                     KARTU KELUARGA
