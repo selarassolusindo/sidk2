@@ -254,6 +254,15 @@
                                         </a>
                                     </li>
                                 </ul>
+                                <!-- kecamatan -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_44_kecamatan" class="nav-link <?php echo $this->uri->segment(1) == '_44_kecamatan' ? 'active' : ''; ?>">
+                                            <i class="fas fa-globe-asia nav-icon"></i>
+                                            <p>Kecamatan</p>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!-- users -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
