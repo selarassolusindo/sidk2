@@ -236,6 +236,51 @@
                                     <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
+                                <!-- agama -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_41_agama" class="nav-link <?php echo $this->uri->segment(1) == '_41_agama' ? 'active' : ''; ?>">
+                                            <i class="fas fa-pray nav-icon"></i>
+                                            <p>Agama</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- pendidikan -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_40_pendidikan" class="nav-link <?php echo $this->uri->segment(1) == '_40_pendidikan' ? 'active' : ''; ?>">
+                                            <i class="fas fa-graduation-cap nav-icon"></i>
+                                            <p>Pendidikan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- pekerjaan -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_39_pekerjaan" class="nav-link <?php echo $this->uri->segment(1) == '_39_pekerjaan' ? 'active' : ''; ?>">
+                                            <i class="fas fa-briefcase nav-icon"></i>
+                                            <p>Pekerjaan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- status -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_38_status" class="nav-link <?php echo $this->uri->segment(1) == '_38_status' ? 'active' : ''; ?>">
+                                            <i class="fas fa-ring nav-icon"></i>
+                                            <p>Status Perkawinan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- hubungan -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_37_hubungan" class="nav-link <?php echo $this->uri->segment(1) == '_37_hubungan' ? 'active' : ''; ?>">
+                                            <i class="fas fa-users nav-icon"></i>
+                                            <p>Hubungan Keluarga</p>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!-- provinsi -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
