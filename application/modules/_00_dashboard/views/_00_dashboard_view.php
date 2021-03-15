@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bbootstrap 4 -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/select2/css/select2.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
         <!-- JQVMap -->
@@ -124,6 +127,11 @@
                 border-bottom-right-radius: 3px;
             }
         </style>
+
+        <!-- jQuery -->
+        <script src="<?php echo base_url(); ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
+        <!-- Select2 -->
+        <script src="<?php echo base_url(); ?>assets/adminlte/plugins/select2/js/select2.full.min.js"></script>
 
     </head>
 
@@ -236,107 +244,121 @@
                                     <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <!-- agama -->
                                 <ul class="nav nav-treeview">
+                                    <!-- agama -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_41_agama" class="nav-link <?php echo $this->uri->segment(1) == '_41_agama' ? 'active' : ''; ?>">
                                             <i class="fas fa-pray nav-icon"></i>
                                             <p>Agama</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- pendidikan -->
-                                <ul class="nav nav-treeview">
+                                    <!-- pendidikan -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_40_pendidikan" class="nav-link <?php echo $this->uri->segment(1) == '_40_pendidikan' ? 'active' : ''; ?>">
                                             <i class="fas fa-graduation-cap nav-icon"></i>
                                             <p>Pendidikan</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- pekerjaan -->
-                                <ul class="nav nav-treeview">
+                                    <!-- pekerjaan -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_39_pekerjaan" class="nav-link <?php echo $this->uri->segment(1) == '_39_pekerjaan' ? 'active' : ''; ?>">
                                             <i class="fas fa-briefcase nav-icon"></i>
                                             <p>Pekerjaan</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- status -->
-                                <ul class="nav nav-treeview">
+                                    <!-- status -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_38_status" class="nav-link <?php echo $this->uri->segment(1) == '_38_status' ? 'active' : ''; ?>">
                                             <i class="fas fa-ring nav-icon"></i>
                                             <p>Status Perkawinan</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- hubungan -->
-                                <ul class="nav nav-treeview">
+                                    <!-- hubungan -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_37_hubungan" class="nav-link <?php echo $this->uri->segment(1) == '_37_hubungan' ? 'active' : ''; ?>">
                                             <i class="fas fa-users nav-icon"></i>
                                             <p>Hubungan Keluarga</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- warga negara -->
-                                <ul class="nav nav-treeview">
+                                    <!-- warga negara -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_36_warganegara" class="nav-link <?php echo $this->uri->segment(1) == '_36_warganegara' ? 'active' : ''; ?>">
                                             <i class="far fa-flag nav-icon"></i>
                                             <p>Kewarganegaraan</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- provinsi -->
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_42_provinsi" class="nav-link <?php echo $this->uri->segment(1) == '_42_provinsi' ? 'active' : ''; ?>">
+                                    <!-- regional -->
+                                    <li class="nav-item has-treeview
+                                        <?php
+                                        switch ($this->uri->segment(1)) {
+                                            case '_42_provinsi':
+                                            case '_43_kabupaten':
+                                            case '_44_kecamatan':
+                                            case '_45_desa':
+                                                echo 'menu-open';
+                                                break;
+                                            default:
+                                                echo '';
+                                        }
+                                        ?>
+                                    ">
+                                        <a href="#" class="nav-link
+                                            <?php
+                                            switch ($this->uri->segment(1)) {
+                                                case '_42_provinsi':
+                                                case '_43_kabupaten':
+                                                case '_44_kecamatan':
+                                                case '_45_desa':
+                                                    echo 'active';
+                                                    break;
+                                                default:
+                                                    echo '';
+                                            }
+                                            ?>
+                                        ">
                                             <i class="fas fa-globe-asia nav-icon"></i>
-                                            <p>Provinsi</p>
+                                            <p>Regional</p>
+                                            <i class="right fas fa-angle-left"></i>
                                         </a>
+                                        <ul class="nav nav-treeview">
+                                            <!-- provinsi -->
+                                            <li class="nav-item">
+                                                <a href="<?php echo site_url(); ?>_42_provinsi" class="nav-link <?php echo $this->uri->segment(1) == '_42_provinsi' ? 'active' : ''; ?>">
+                                                    <i class="fas fa-globe-asia nav-icon"></i>
+                                                    <p>Provinsi</p>
+                                                </a>
+                                            </li>
+                                            <!-- kabupaten -->
+                                            <li class="nav-item">
+                                                <a href="<?php echo site_url(); ?>_43_kabupaten" class="nav-link <?php echo $this->uri->segment(1) == '_43_kabupaten' ? 'active' : ''; ?>">
+                                                    <i class="fas fa-globe-asia nav-icon"></i>
+                                                    <p>Kabupaten</p>
+                                                </a>
+                                            </li>
+                                            <!-- kecamatan -->
+                                            <li class="nav-item">
+                                                <a href="<?php echo site_url(); ?>_44_kecamatan" class="nav-link <?php echo $this->uri->segment(1) == '_44_kecamatan' ? 'active' : ''; ?>">
+                                                    <i class="fas fa-globe-asia nav-icon"></i>
+                                                    <p>Kecamatan</p>
+                                                </a>
+                                            </li>
+                                            <!-- kelurahan -->
+                                            <li class="nav-item">
+                                                <a href="<?php echo site_url(); ?>_45_desa" class="nav-link <?php echo $this->uri->segment(1) == '_45_desa' ? 'active' : ''; ?>">
+                                                    <i class="fas fa-globe-asia nav-icon"></i>
+                                                    <p>Kelurahan</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                </ul>
-                                <!-- kabupaten -->
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_43_kabupaten" class="nav-link <?php echo $this->uri->segment(1) == '_43_kabupaten' ? 'active' : ''; ?>">
-                                            <i class="fas fa-globe-asia nav-icon"></i>
-                                            <p>Kabupaten</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- kecamatan -->
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_44_kecamatan" class="nav-link <?php echo $this->uri->segment(1) == '_44_kecamatan' ? 'active' : ''; ?>">
-                                            <i class="fas fa-globe-asia nav-icon"></i>
-                                            <p>Kecamatan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- kelurahan -->
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_45_desa" class="nav-link <?php echo $this->uri->segment(1) == '_45_desa' ? 'active' : ''; ?>">
-                                            <i class="fas fa-globe-asia nav-icon"></i>
-                                            <p>Kelurahan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- users -->
-                                <ul class="nav nav-treeview">
+                                    <!-- users -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>auth" class="nav-link <?php echo ($this->uri->segment(1) == 'auth' and $this->uri->total_segments() == 1) ? 'active' : ''; ?>">
                                             <i class="fas fa-user-cog nav-icon"></i>
                                             <p>Users</p>
                                         </a>
                                     </li>
-                                </ul>
-                                <!-- change password -->
-                                <ul class="nav nav-treeview">
+                                    <!-- change password -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>auth/change_password/<?php echo $this->session->userdata('user_id'); ?>" class="nav-link <?php echo $this->uri->segment(2) == 'change_password' ? 'active' : ''; ?>">
                                             <i class="fas fa-key nav-icon"></i>
@@ -346,37 +368,15 @@
                                 </ul>
                             </li>
 
-                            <!-- utility -->
-                            <!-- <li class="nav-item has-treeview
-                                <?php
-                                switch ($this->uri->segment(1)) {
-                                    case 'change_password':
-                                        echo 'menu-open';
-                                        break;
-                                    default:
-                                        echo '';
-                                }
-                                ?>
-                            ">
-                                <a href="#" class="nav-link
-                                    <?php
-                                    switch ($this->uri->segment(1)) {
-                                        case 'change_password':
-                                            echo 'active';
-                                            break;
-                                        default:
-                                            echo '';
-                                    }
-                                    ?>
-                                ">
-                                    <i class="fas fa-tools nav-icon"></i>
+                            <!-- penduduk -->
+                            <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link">
+                                    <i class="far fa-address-book nav-icon"></i>
                                     <p>
-                                    UTILITY
-                                    <i class="right fas fa-angle-left"></i>
+                                    PENDUDUK
                                     </p>
                                 </a>
-
-                            </li> -->
+                            </li>
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>
@@ -402,6 +402,7 @@
                             <?php } ?>
 
                         </ul>
+
                     </nav>
                     <!-- /.sidebar-menu -->
 
@@ -460,7 +461,8 @@
         <!-- ./wrapper -->
 
         <!-- jQuery -->
-        <script src="<?php echo base_url(); ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/adminlte/plugins/jquery/jquery.min.js"></script> -->
+
         <!-- jQuery UI 1.11.4 -->
         <script src="<?php echo base_url(); ?>assets/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
