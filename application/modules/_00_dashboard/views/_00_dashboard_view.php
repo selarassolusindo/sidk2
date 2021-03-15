@@ -281,6 +281,15 @@
                                         </a>
                                     </li>
                                 </ul>
+                                <!-- warga negara -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_36_warganegara" class="nav-link <?php echo $this->uri->segment(1) == '_36_warganegara' ? 'active' : ''; ?>">
+                                            <i class="far fa-flag nav-icon"></i>
+                                            <p>Kewarganegaraan</p>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!-- provinsi -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
