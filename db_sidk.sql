@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2021 at 06:51 PM
+-- Generation Time: Mar 15, 2021 at 09:15 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -87458,7 +87458,7 @@ CREATE TABLE `t46_users` (
 --
 
 INSERT INTO `t46_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615786903, 1, 'Admin', NULL, NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615812301, 1, 'Admin', NULL, NULL, NULL),
 (2, '::1', 'dodo', '$2y$10$DhC9If3ZtQ8WxJEwaoSzX.7H3bQTTyEjtvcfcbQyDxomgTiS5hw7m', 'e@e.e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615481968, 1615733948, 1, 'Dodo', NULL, NULL, NULL),
 (3, '::1', 'adi', '$2y$10$hzjCMjtQt6SNmMf2KFdelepGfN6FW37q39dIXWe6Y3/mpJcLLfY0O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615728601, 1615731303, 1, 'Adi', NULL, NULL, NULL);
 
