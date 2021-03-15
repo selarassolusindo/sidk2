@@ -263,6 +263,15 @@
                                         </a>
                                     </li>
                                 </ul>
+                                <!-- kelurahan -->
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_45_desa" class="nav-link <?php echo $this->uri->segment(1) == '_45_desa' ? 'active' : ''; ?>">
+                                            <i class="fas fa-globe-asia nav-icon"></i>
+                                            <p>Kelurahan</p>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!-- users -->
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
