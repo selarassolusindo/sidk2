@@ -41,14 +41,10 @@
         </div> -->
         <div class="form-group">
             <label for="int">Tempat Lahir <?php echo form_error('TempatLahir') ?></label>
-            <select name="TempatLahir" class="form-control" id="select2">
+            <!-- <select name="TempatLahir" class="form-control" id="select2"> -->
+            <select name="TempatLahir" class="form-control" id="Kabupaten">
                 <option value="">Tempat Lahir</option>
-                <?php
-                foreach($kabupatenData as $kabupaten) {
-                    $selected = ($kabupaten->id == $TempatLahir) ? ' selected="selected"' : "";
-                    echo '<option value="'.$kabupaten->id.'" '.$selected.'>'.$kabupaten->nama . '</option>';
-                }
-                ?>
+                <option value="<?php echo $TempatLahir ?>" selected="selected"><?php echo $TempatLahirNama; ?></option>
             </select>
         </div>
 	    <!-- <div class="form-group">
@@ -206,7 +202,26 @@
         $(document).ready(function() {
             $('#select2').select2();
         });
-
+        $('#Kabupaten').select2({
+            minimumInputLength: 3,
+            allowClear: true,
+            placeholder: 'Kabupaten',
+            ajax: {
+                dataType: 'json',
+                url: '<?php echo base_url(); ?>_43_kabupaten/getData',
+                delay: 800,
+                data: function(params) {
+                    return {
+                        search: params.term
+                    }
+                },
+                processResults: function (data, page) {
+                    return {
+                        results: data
+                    };
+                },
+            }
+        });
     </script>
     <script>
         $(function () {

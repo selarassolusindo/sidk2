@@ -94,7 +94,6 @@ class _06_penduduk extends CI_Controller
     public function create()
     {
         $this->load->model('_43_kabupaten/_43_kabupaten_model');
-        $kabupaten = $this->_43_kabupaten_model->get_all();
         $this->load->model('_41_agama/_41_agama_model');
         $agama = $this->_41_agama_model->get_all();
         $this->load->model('_40_pendidikan/_40_pendidikan_model');
@@ -138,7 +137,7 @@ class _06_penduduk extends CI_Controller
             'statusData' => $status,
             'hubunganData' => $hubungan,
             'warganegaraData' => $warganegara,
-            'kabupatenData' => $kabupaten,
+            'TempatLahirNama' => '',
             );
         // $this->load->view('_06_penduduk/t06_penduduk_form', $data);
         $data['_view'] = '_06_penduduk/t06_penduduk_form';
@@ -191,7 +190,6 @@ class _06_penduduk extends CI_Controller
 
         if ($row) {
             $this->load->model('_43_kabupaten/_43_kabupaten_model');
-            $kabupaten = $this->_43_kabupaten_model->get_all();
             $this->load->model('_41_agama/_41_agama_model');
             $agama = $this->_41_agama_model->get_all();
             $this->load->model('_40_pendidikan/_40_pendidikan_model');
@@ -237,7 +235,7 @@ class _06_penduduk extends CI_Controller
                 'statusData' => $status,
                 'hubunganData' => $hubungan,
                 'warganegaraData' => $warganegara,
-                'kabupatenData' => $kabupaten,
+                'TempatLahirNama' => $this->_43_kabupaten_model->get_by_id($row->TempatLahir)->nama,
         	    );
             // $this->load->view('_06_penduduk/t06_penduduk_form', $data);
             $data['_view'] = '_06_penduduk/t06_penduduk_form';

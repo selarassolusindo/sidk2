@@ -82,9 +82,6 @@ class _07_kk extends CI_Controller
         // penduduk
         $this->load->model('_06_penduduk/_06_penduduk_model');
         $penduduk = $this->_06_penduduk_model->get_all();
-        // kelurahan
-        // $this->load->model('_45_desa/_45_desa_model');
-        // $kelurahan = $this->_45_desa_model->get_all();
 
         $data = array(
             'button' => 'Create',
