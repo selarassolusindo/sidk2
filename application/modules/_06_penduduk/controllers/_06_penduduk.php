@@ -419,6 +419,23 @@ class _06_penduduk extends CI_Controller
         $this->load->view('_06_penduduk/t06_penduduk_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_06_penduduk_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->idpenduduk;
+                $list[$key]['text'] = $row->Nama . ' - ' . $row->NIK;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _06_penduduk.php */

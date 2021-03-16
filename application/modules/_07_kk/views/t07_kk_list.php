@@ -55,9 +55,9 @@
 		<th>Provinsi</th>
 		<th>KodePos</th>
 		<th>Tanggal</th>
-		<th>Idusers</th>
-		<th>Created At</th>
-		<th>Updated At</th>
+		<!-- <th>Idusers</th> -->
+		<!-- <th>Created At</th> -->
+		<!-- <th>Updated At</th> -->
 		<th>Action</th>
             </tr><?php
             foreach ($_07_kk_data as $_07_kk)
@@ -76,9 +76,9 @@
 			<td><?php echo $_07_kk->Provinsi ?></td>
 			<td><?php echo $_07_kk->KodePos ?></td>
 			<td><?php echo $_07_kk->Tanggal ?></td>
-			<td><?php echo $_07_kk->idusers ?></td>
-			<td><?php echo $_07_kk->created_at ?></td>
-			<td><?php echo $_07_kk->updated_at ?></td>
+			<!-- <td><?php echo $_07_kk->idusers ?></td> -->
+			<!-- <td><?php echo $_07_kk->created_at ?></td> -->
+			<!-- <td><?php echo $_07_kk->updated_at ?></td> -->
 			<td style="text-align:center" width="200px">
 				<?php
 				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read');

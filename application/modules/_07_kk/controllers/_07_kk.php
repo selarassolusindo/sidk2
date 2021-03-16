@@ -79,10 +79,6 @@ class _07_kk extends CI_Controller
 
     public function create()
     {
-        // penduduk
-        $this->load->model('_06_penduduk/_06_penduduk_model');
-        $penduduk = $this->_06_penduduk_model->get_all();
-
         $data = array(
             'button' => 'Create',
             'action' => site_url('_07_kk/create_action'),
@@ -101,8 +97,7 @@ class _07_kk extends CI_Controller
     	    // 'idusers' => set_value('idusers'),
     	    // 'created_at' => set_value('created_at'),
     	    // 'updated_at' => set_value('updated_at'),
-            'pendudukData' => $penduduk,
-            'kelurahanData' => $kelurahan,
+            // 'pendudukNama' => '',
             );
         // $this->load->view('_07_kk/t07_kk_form', $data);
         $data['_view'] = '_07_kk/t07_kk_form';
@@ -145,12 +140,12 @@ class _07_kk extends CI_Controller
         $row = $this->_07_kk_model->get_by_id($id);
 
         if ($row) {
-            // penduduk
+
             $this->load->model('_06_penduduk/_06_penduduk_model');
-            $penduduk = $this->_06_penduduk_model->get_all();
-            // kelurahan
-            // $this->load->model('_45_desa/_45_desa_model');
-            // $kelurahan = $this->_45_desa_model->get_all();
+            $this->load->model('_45_desa/_45_desa_model');
+            $this->load->model('_44_kecamatan/_44_kecamatan_model');
+            $this->load->model('_43_kabupaten/_43_kabupaten_model');
+            $this->load->model('_42_provinsi/_42_provinsi_model');
 
             $data = array(
                 'button' => 'Update',
@@ -170,8 +165,11 @@ class _07_kk extends CI_Controller
         		// 'idusers' => set_value('idusers', $row->idusers),
         		// 'created_at' => set_value('created_at', $row->created_at),
         		// 'updated_at' => set_value('updated_at', $row->updated_at),
-                'pendudukData' => $penduduk,
-                'kelurahanData' => $kelurahan,
+                'PendudukNama' => $this->_06_penduduk_model->get_by_id($row->Nama)->Nama,
+                'KelurahanNama' => $this->_45_desa_model->get_by_id($row->Kelurahan)->nama,
+                'KecamatanNama' => $this->_44_kecamatan_model->get_by_id($row->Kecamatan)->nama,
+                'KabupatenNama' => $this->_43_kabupaten_model->get_by_id($row->Kabupaten)->nama,
+                'ProvinsiNama' => $this->_42_provinsi_model->get_by_id($row->Provinsi)->nama,
         	    );
             // $this->load->view('_07_kk/t07_kk_form', $data);
             $data['_view'] = '_07_kk/t07_kk_form';
@@ -240,11 +238,11 @@ class _07_kk extends CI_Controller
 	$this->form_validation->set_rules('Provinsi', 'provinsi', 'trim|required');
 	$this->form_validation->set_rules('KodePos', 'kodepos', 'trim|required');
 	$this->form_validation->set_rules('Tanggal', 'tanggal', 'trim|required');
-	$this->form_validation->set_rules('idusers', 'idusers', 'trim|required');
-	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
+	// $this->form_validation->set_rules('idusers', 'idusers', 'trim|required');
+	// $this->form_validation->set_rules('created_at', 'created at', 'trim|required');
+	// $this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
 
-	$this->form_validation->set_rules('idkk', 'idkk', 'trim');
+	// $this->form_validation->set_rules('idkk', 'idkk', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 

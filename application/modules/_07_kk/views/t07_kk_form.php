@@ -22,13 +22,14 @@
         </div> -->
         <div class="form-group">
             <label for="int">Nama <?php echo form_error('Nama') ?></label>
-            <select name="Nama" class="form-control select2">
+            <select name="Nama" class="form-control" id="Penduduk">
                 <option value="">Nama</option>
+                <option value="<?php echo $Nama ?>" selected="selected"><?php echo $PendudukNama; ?></option>
                 <?php
-                foreach($pendudukData as $penduduk) {
-                    $selected = ($penduduk->idpenduduk == $Nama) ? ' selected="selected"' : "";
-                    echo '<option value="'.$penduduk->idpenduduk.'" '.$selected.'>'.$penduduk->Nama . ' - ' . $penduduk->NIK . '</option>';
-                }
+                // foreach($pendudukData as $penduduk) {
+                //     $selected = ($penduduk->idpenduduk == $Nama) ? ' selected="selected"' : "";
+                //     echo '<option value="'.$penduduk->idpenduduk.'" '.$selected.'>'.$penduduk->Nama . ' - ' . $penduduk->NIK . '</option>';
+                // }
                 ?>
             </select>
         </div>
@@ -48,24 +49,28 @@
             <label for="int">Kelurahan <?php echo form_error('Kelurahan') ?></label>
             <select name="Kelurahan" class="form-control" id="Kelurahan">
                 <option value="">Kelurahan</option>
+                <option value="<?php echo $Kelurahan ?>" selected="selected"><?php echo $KelurahanNama; ?></option>
             </select>
         </div>
         <div class="form-group">
             <label for="int">Kecamatan <?php echo form_error('Kecamatan') ?></label>
             <select name="Kecamatan" class="form-control" id="Kecamatan">
                 <option value="">Kecamatan</option>
+                <option value="<?php echo $Kecamatan ?>" selected="selected"><?php echo $KecamatanNama; ?></option>
             </select>
         </div>
         <div class="form-group">
             <label for="int">Kabupaten <?php echo form_error('Kabupaten') ?></label>
             <select name="Kabupaten" class="form-control" id="Kabupaten">
                 <option value="">Kabupaten</option>
+                <option value="<?php echo $Kabupaten ?>" selected="selected"><?php echo $KabupatenNama; ?></option>
             </select>
         </div>
         <div class="form-group">
             <label for="int">Provinsi <?php echo form_error('Provinsi') ?></label>
             <select name="Provinsi" class="form-control" id="Provinsi">
                 <option value="">Provinsi</option>
+                <option value="<?php echo $Provinsi ?>" selected="selected"><?php echo $ProvinsiNama; ?></option>
             </select>
         </div>
 	    <div class="form-group">
@@ -97,6 +102,26 @@
         // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
             $('.select2').select2();
+            $('#Penduduk').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Penduduk',
+                ajax: {
+                    dataType: 'json',
+                    url: '<?php echo base_url(); ?>_06_penduduk/getData',
+                    delay: 800,
+                    data: function(params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+            });
             $('#Kelurahan').select2({
                 minimumInputLength: 3,
                 allowClear: true,

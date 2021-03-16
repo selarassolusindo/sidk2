@@ -117,6 +117,14 @@ class _06_penduduk_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    // untuk select3 kartu keluarga
+    function getData($q)
+    {
+    	$this->db->like('Nama', $q);
+        $this->db->or_like('NIK', $q);
+        return $this->db->get($this->table)->result();
+    }
+
 }
 
 /* End of file _06_penduduk_model.php */
