@@ -66,14 +66,14 @@
                 <tr>
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $_07_kk->Nomor ?></td>
-			<td><?php echo $_07_kk->Nama ?></td>
+			<td><?php echo $_07_kk->PendudukNama ?></td>
 			<td><?php echo $_07_kk->Alamat ?></td>
 			<td><?php echo $_07_kk->RT ?></td>
 			<td><?php echo $_07_kk->RW ?></td>
-			<td><?php echo $_07_kk->Kelurahan ?></td>
-			<td><?php echo $_07_kk->Kecamatan ?></td>
-			<td><?php echo $_07_kk->Kabupaten ?></td>
-			<td><?php echo $_07_kk->Provinsi ?></td>
+			<td><?php echo $_07_kk->KelurahanNama ?></td>
+			<td><?php echo $_07_kk->KecamatanNama ?></td>
+			<td><?php echo $_07_kk->KabupatenNama ?></td>
+			<td><?php echo $_07_kk->ProvinsiNama ?></td>
 			<td><?php echo $_07_kk->KodePos ?></td>
 			<td><?php echo $_07_kk->Tanggal ?></td>
 			<!-- <td><?php echo $_07_kk->idusers ?></td> -->
