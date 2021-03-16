@@ -25,8 +25,20 @@ class _07_kk_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $this->db->where($this->table.'.'.$this->id, $id);
+        $this->db->select($this->table.'.*');
+        $this->db->select('t06_penduduk.nama as PendudukNama');
+        $this->db->select('t45_desa.nama as KelurahanNama');
+        $this->db->select('t44_kecamatan.nama as KecamatanNama');
+        $this->db->select('t43_kabupaten.nama as KabupatenNama');
+        $this->db->select('t42_provinsi.nama as ProvinsiNama');
+        $this->db->from($this->table);
+        $this->db->join('t06_penduduk', 't06_penduduk.idpenduduk = '.$this->table.'.Nama');
+        $this->db->join('t45_desa', 't45_desa.id = '.$this->table.'.Kelurahan');
+        $this->db->join('t44_kecamatan', 't44_kecamatan.id = '.$this->table.'.Kecamatan');
+        $this->db->join('t43_kabupaten', 't43_kabupaten.id = '.$this->table.'.Kabupaten');
+        $this->db->join('t42_provinsi', 't42_provinsi.id = '.$this->table.'.Provinsi'); // echo $this->db->get_compiled_select();
+        return $this->db->get()->row();
     }
 
     // get total rows

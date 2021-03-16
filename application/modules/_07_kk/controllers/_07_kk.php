@@ -51,22 +51,27 @@ class _07_kk extends CI_Controller
         $row = $this->_07_kk_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'idkk' => $row->idkk,
-		'Nomor' => $row->Nomor,
-		'Nama' => $row->Nama,
-		'Alamat' => $row->Alamat,
-		'RT' => $row->RT,
-		'RW' => $row->RW,
-		'Kelurahan' => $row->Kelurahan,
-		'Kecamatan' => $row->Kecamatan,
-		'Kabupaten' => $row->Kabupaten,
-		'Provinsi' => $row->Provinsi,
-		'KodePos' => $row->KodePos,
-		'Tanggal' => $row->Tanggal,
-		'idusers' => $row->idusers,
-		'created_at' => $row->created_at,
-		'updated_at' => $row->updated_at,
-	    );
+        		'idkk' => $row->idkk,
+        		'Nomor' => $row->Nomor,
+        		'Nama' => $row->Nama,
+        		'Alamat' => $row->Alamat,
+        		'RT' => $row->RT,
+        		'RW' => $row->RW,
+        		'Kelurahan' => $row->Kelurahan,
+        		'Kecamatan' => $row->Kecamatan,
+        		'Kabupaten' => $row->Kabupaten,
+        		'Provinsi' => $row->Provinsi,
+        		'KodePos' => $row->KodePos,
+        		'Tanggal' => $row->Tanggal,
+        		'idusers' => $row->idusers,
+        		'created_at' => $row->created_at,
+        		'updated_at' => $row->updated_at,
+                'PendudukNama' => $row->PendudukNama,
+                'KelurahanNama' => $row->KelurahanNama,
+                'KecamatanNama' => $row->KecamatanNama,
+                'KabupatenNama' => $row->KabupatenNama,
+                'ProvinsiNama' => $row->ProvinsiNama,
+        	    );
             // $this->load->view('_07_kk/t07_kk_read', $data);
             $data['_view'] = '_07_kk/t07_kk_read';
             $data['_caption'] = 'Kartu Keluarga';
