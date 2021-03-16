@@ -79,8 +79,13 @@ class _07_kk extends CI_Controller
 
     public function create()
     {
+        // penduduk
         $this->load->model('_06_penduduk/_06_penduduk_model');
         $penduduk = $this->_06_penduduk_model->get_all();
+        // kelurahan
+        // $this->load->model('_45_desa/_45_desa_model');
+        // $kelurahan = $this->_45_desa_model->get_all();
+
         $data = array(
             'button' => 'Create',
             'action' => site_url('_07_kk/create_action'),
@@ -100,6 +105,7 @@ class _07_kk extends CI_Controller
     	    // 'created_at' => set_value('created_at'),
     	    // 'updated_at' => set_value('updated_at'),
             'pendudukData' => $penduduk,
+            'kelurahanData' => $kelurahan,
             );
         // $this->load->view('_07_kk/t07_kk_form', $data);
         $data['_view'] = '_07_kk/t07_kk_form';
@@ -142,25 +148,34 @@ class _07_kk extends CI_Controller
         $row = $this->_07_kk_model->get_by_id($id);
 
         if ($row) {
+            // penduduk
+            $this->load->model('_06_penduduk/_06_penduduk_model');
+            $penduduk = $this->_06_penduduk_model->get_all();
+            // kelurahan
+            // $this->load->model('_45_desa/_45_desa_model');
+            // $kelurahan = $this->_45_desa_model->get_all();
+
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('_07_kk/update_action'),
-		'idkk' => set_value('idkk', $row->idkk),
-		'Nomor' => set_value('Nomor', $row->Nomor),
-		'Nama' => set_value('Nama', $row->Nama),
-		'Alamat' => set_value('Alamat', $row->Alamat),
-		'RT' => set_value('RT', $row->RT),
-		'RW' => set_value('RW', $row->RW),
-		'Kelurahan' => set_value('Kelurahan', $row->Kelurahan),
-		'Kecamatan' => set_value('Kecamatan', $row->Kecamatan),
-		'Kabupaten' => set_value('Kabupaten', $row->Kabupaten),
-		'Provinsi' => set_value('Provinsi', $row->Provinsi),
-		'KodePos' => set_value('KodePos', $row->KodePos),
-		'Tanggal' => set_value('Tanggal', $row->Tanggal),
-		// 'idusers' => set_value('idusers', $row->idusers),
-		// 'created_at' => set_value('created_at', $row->created_at),
-		// 'updated_at' => set_value('updated_at', $row->updated_at),
-	    );
+        		'idkk' => set_value('idkk', $row->idkk),
+        		'Nomor' => set_value('Nomor', $row->Nomor),
+        		'Nama' => set_value('Nama', $row->Nama),
+        		'Alamat' => set_value('Alamat', $row->Alamat),
+        		'RT' => set_value('RT', $row->RT),
+        		'RW' => set_value('RW', $row->RW),
+        		'Kelurahan' => set_value('Kelurahan', $row->Kelurahan),
+        		'Kecamatan' => set_value('Kecamatan', $row->Kecamatan),
+        		'Kabupaten' => set_value('Kabupaten', $row->Kabupaten),
+        		'Provinsi' => set_value('Provinsi', $row->Provinsi),
+        		'KodePos' => set_value('KodePos', $row->KodePos),
+        		'Tanggal' => set_value('Tanggal', $row->Tanggal),
+        		// 'idusers' => set_value('idusers', $row->idusers),
+        		// 'created_at' => set_value('created_at', $row->created_at),
+        		// 'updated_at' => set_value('updated_at', $row->updated_at),
+                'pendudukData' => $penduduk,
+                'kelurahanData' => $kelurahan,
+        	    );
             // $this->load->view('_07_kk/t07_kk_form', $data);
             $data['_view'] = '_07_kk/t07_kk_form';
             $data['_caption'] = 'Kartu Keluarga';

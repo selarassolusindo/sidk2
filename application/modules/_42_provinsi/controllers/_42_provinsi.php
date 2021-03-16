@@ -207,6 +207,23 @@ class _42_provinsi extends CI_Controller
         $this->load->view('_42_provinsi/t42_provinsi_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_42_provinsi_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->id;
+                $list[$key]['text'] = $row->nama;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _42_provinsi.php */

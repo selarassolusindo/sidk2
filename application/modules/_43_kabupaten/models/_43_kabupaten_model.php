@@ -74,6 +74,13 @@ class _43_kabupaten_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    // untuk select3 kartu keluarga
+    function getData($q)
+    {
+    	$this->db->like('nama', $q);
+        return $this->db->get($this->table)->result();
+    }
+
 }
 
 /* End of file _43_kabupaten_model.php */

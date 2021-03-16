@@ -222,6 +222,23 @@ class _43_kabupaten extends CI_Controller
         $this->load->view('_43_kabupaten/t43_kabupaten_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_43_kabupaten_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->id;
+                $list[$key]['text'] = $row->nama;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _43_kabupaten.php */

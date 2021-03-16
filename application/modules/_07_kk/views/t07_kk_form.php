@@ -22,7 +22,7 @@
         </div> -->
         <div class="form-group">
             <label for="int">Nama <?php echo form_error('Nama') ?></label>
-            <select name="Nama" class="form-control" id="select2">
+            <select name="Nama" class="form-control select2">
                 <option value="">Nama</option>
                 <?php
                 foreach($pendudukData as $penduduk) {
@@ -44,21 +44,29 @@
             <label for="varchar">RW <?php echo form_error('RW') ?></label>
             <input type="text" class="form-control" name="RW" id="RW" placeholder="RW" value="<?php echo $RW; ?>" />
         </div>
-	    <div class="form-group">
+        <div class="form-group">
             <label for="int">Kelurahan <?php echo form_error('Kelurahan') ?></label>
-            <input type="text" class="form-control" name="Kelurahan" id="Kelurahan" placeholder="Kelurahan" value="<?php echo $Kelurahan; ?>" />
+            <select name="Kelurahan" class="form-control" id="Kelurahan">
+                <option value="">Kelurahan</option>
+            </select>
         </div>
-	    <div class="form-group">
+        <div class="form-group">
             <label for="int">Kecamatan <?php echo form_error('Kecamatan') ?></label>
-            <input type="text" class="form-control" name="Kecamatan" id="Kecamatan" placeholder="Kecamatan" value="<?php echo $Kecamatan; ?>" />
+            <select name="Kecamatan" class="form-control" id="Kecamatan">
+                <option value="">Kecamatan</option>
+            </select>
         </div>
-	    <div class="form-group">
+        <div class="form-group">
             <label for="int">Kabupaten <?php echo form_error('Kabupaten') ?></label>
-            <input type="text" class="form-control" name="Kabupaten" id="Kabupaten" placeholder="Kabupaten" value="<?php echo $Kabupaten; ?>" />
+            <select name="Kabupaten" class="form-control" id="Kabupaten">
+                <option value="">Kabupaten</option>
+            </select>
         </div>
-	    <div class="form-group">
+        <div class="form-group">
             <label for="int">Provinsi <?php echo form_error('Provinsi') ?></label>
-            <input type="text" class="form-control" name="Provinsi" id="Provinsi" placeholder="Provinsi" value="<?php echo $Provinsi; ?>" />
+            <select name="Provinsi" class="form-control" id="Provinsi">
+                <option value="">Provinsi</option>
+            </select>
         </div>
 	    <div class="form-group">
             <label for="varchar">KodePos <?php echo form_error('KodePos') ?></label>
@@ -88,7 +96,87 @@
     <script type="text/javascript">
         // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
-            $('#select2').select2();
+            $('.select2').select2();
+            $('#Kelurahan').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Kelurahan',
+                ajax: {
+                    dataType: 'json',
+                    url: '<?php echo base_url(); ?>_45_desa/getData',
+                    delay: 800,
+                    data: function(params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+            });
+            $('#Kecamatan').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Kecamatan',
+                ajax: {
+                    dataType: 'json',
+                    url: '<?php echo base_url(); ?>_44_kecamatan/getData',
+                    delay: 800,
+                    data: function(params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+            });
+            $('#Kabupaten').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Kabupaten',
+                ajax: {
+                    dataType: 'json',
+                    url: '<?php echo base_url(); ?>_43_kabupaten/getData',
+                    delay: 800,
+                    data: function(params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+            });
+            $('#Provinsi').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Provinsi',
+                ajax: {
+                    dataType: 'json',
+                    url: '<?php echo base_url(); ?>_42_provinsi/getData',
+                    delay: 800,
+                    data: function(params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+            });
         });
     </script>
     <!-- </body>
