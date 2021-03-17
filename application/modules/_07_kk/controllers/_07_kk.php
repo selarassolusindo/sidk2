@@ -118,23 +118,45 @@ class _07_kk extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'Nomor' => $this->input->post('Nomor',TRUE),
-		'Nama' => $this->input->post('Nama',TRUE),
-		'Alamat' => $this->input->post('Alamat',TRUE),
-		'RT' => $this->input->post('RT',TRUE),
-		'RW' => $this->input->post('RW',TRUE),
-		'Kelurahan' => $this->input->post('Kelurahan',TRUE),
-		'Kecamatan' => $this->input->post('Kecamatan',TRUE),
-		'Kabupaten' => $this->input->post('Kabupaten',TRUE),
-		'Provinsi' => $this->input->post('Provinsi',TRUE),
-		'KodePos' => $this->input->post('KodePos',TRUE),
-		'Tanggal' => $this->input->post('Tanggal',TRUE),
-        'idusers' => $this->session->userdata('user_id'),
-		// 'created_at' => $this->input->post('created_at',TRUE),
-		// 'updated_at' => $this->input->post('updated_at',TRUE),
-	    );
+        		'Nomor' => $this->input->post('Nomor',TRUE),
+        		'Nama' => $this->input->post('Nama',TRUE),
+        		'Alamat' => $this->input->post('Alamat',TRUE),
+        		'RT' => $this->input->post('RT',TRUE),
+        		'RW' => $this->input->post('RW',TRUE),
+        		'Kelurahan' => $this->input->post('Kelurahan',TRUE),
+        		'Kecamatan' => $this->input->post('Kecamatan',TRUE),
+        		'Kabupaten' => $this->input->post('Kabupaten',TRUE),
+        		'Provinsi' => $this->input->post('Provinsi',TRUE),
+        		'KodePos' => $this->input->post('KodePos',TRUE),
+        		'Tanggal' => $this->input->post('Tanggal',TRUE),
+                'idusers' => $this->session->userdata('user_id'),
+        		// 'created_at' => $this->input->post('created_at',TRUE),
+        		// 'updated_at' => $this->input->post('updated_at',TRUE),
+        	    );
 
+            /**
+             * simpan data master ke tabel master
+             */
             $this->_07_kk_model->insert($data);
+
+            /**
+             * ambil id data master terbaru
+             */
+            $insert_id = $this->db->insert_id();
+
+            /**
+             * update data detail ke tabel detail
+             */
+            $data = $this->input->post();
+            foreach ($data['idpenduduk'] as $key => $item) {
+                $detail = [
+                    'idkk' => $insert_id,
+                    'NoUrut' => $data['NoUrut'][$key],
+                ];
+                $this->db->where('idpenduduk', $item);
+                $this->db->update('t06_penduduk', $detail);
+            }
+
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('_07_kk'));
         }
@@ -176,6 +198,18 @@ class _07_kk extends CI_Controller
                 'KabupatenNama' => $this->_43_kabupaten_model->get_by_id($row->Kabupaten)->nama,
                 'ProvinsiNama' => $this->_42_provinsi_model->get_by_id($row->Provinsi)->nama,
         	    );
+
+            /**
+             * ambil data dari tabel detail
+             */
+            $data['detail'] =
+                $this->db
+                    ->select('*')
+                    ->from('t06_penduduk')
+                    ->where('idkk', $id)
+                    ->get()->result()
+                    ;
+
             // $this->load->view('_07_kk/t07_kk_form', $data);
             $data['_view'] = '_07_kk/t07_kk_form';
             $data['_caption'] = 'Kartu Keluarga';
@@ -194,23 +228,51 @@ class _07_kk extends CI_Controller
             $this->update($this->input->post('idkk', TRUE));
         } else {
             $data = array(
-		'Nomor' => $this->input->post('Nomor',TRUE),
-		'Nama' => $this->input->post('Nama',TRUE),
-		'Alamat' => $this->input->post('Alamat',TRUE),
-		'RT' => $this->input->post('RT',TRUE),
-		'RW' => $this->input->post('RW',TRUE),
-		'Kelurahan' => $this->input->post('Kelurahan',TRUE),
-		'Kecamatan' => $this->input->post('Kecamatan',TRUE),
-		'Kabupaten' => $this->input->post('Kabupaten',TRUE),
-		'Provinsi' => $this->input->post('Provinsi',TRUE),
-		'KodePos' => $this->input->post('KodePos',TRUE),
-		'Tanggal' => $this->input->post('Tanggal',TRUE),
-		'idusers' => $this->session->userdata('user_id'),
-		// 'created_at' => $this->input->post('created_at',TRUE),
-		// 'updated_at' => $this->input->post('updated_at',TRUE),
-	    );
+        		'Nomor' => $this->input->post('Nomor',TRUE),
+        		'Nama' => $this->input->post('Nama',TRUE),
+        		'Alamat' => $this->input->post('Alamat',TRUE),
+        		'RT' => $this->input->post('RT',TRUE),
+        		'RW' => $this->input->post('RW',TRUE),
+        		'Kelurahan' => $this->input->post('Kelurahan',TRUE),
+        		'Kecamatan' => $this->input->post('Kecamatan',TRUE),
+        		'Kabupaten' => $this->input->post('Kabupaten',TRUE),
+        		'Provinsi' => $this->input->post('Provinsi',TRUE),
+        		'KodePos' => $this->input->post('KodePos',TRUE),
+        		'Tanggal' => $this->input->post('Tanggal',TRUE),
+        		'idusers' => $this->session->userdata('user_id'),
+        		// 'created_at' => $this->input->post('created_at',TRUE),
+        		// 'updated_at' => $this->input->post('updated_at',TRUE),
+        	    );
 
+            /**
+             * update data di tabel master
+             */
             $this->_07_kk_model->update($this->input->post('idkk', TRUE), $data);
+
+            /**
+             * simpan id data yang akan diupdate dari tabel master
+             */
+            $id = $this->input->post('idkk', TRUE);
+
+            /**
+             * hapus dulu data lama di tabel detail
+             */
+            $this->db->where('idkk', $id);
+            $this->db->update('t06_penduduk', array('idkk' => null, NoUrut => 0));
+
+            /**
+             * simpan data di tabel detail
+             */
+            $data = $this->input->post();
+            foreach ($data['idpenduduk'] as $key => $item) {
+                $detail = [
+                    'idkk' => $id,
+                    'NoUrut' => $data['NoUrut'][$key],
+                ];
+                $this->db->where('idpenduduk', $item);
+                $this->db->update('t06_penduduk', $detail);
+            }
+
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('_07_kk'));
         }

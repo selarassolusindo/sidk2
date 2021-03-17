@@ -44,52 +44,47 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>Nomor</th>
-		<th>Nama</th>
-		<th>Alamat</th>
-		<th>RT</th>
-		<th>RW</th>
-		<th>Kelurahan</th>
-		<th>Kecamatan</th>
-		<th>Kabupaten</th>
-		<th>Provinsi</th>
-		<th>KodePos</th>
-		<th>Tanggal</th>
-		<!-- <th>Idusers</th> -->
-		<!-- <th>Created At</th> -->
-		<!-- <th>Updated At</th> -->
-		<th>Action</th>
-            </tr><?php
+        		<th>Nomor</th>
+        		<th>Nama</th>
+        		<th>Alamat</th>
+        		<th>RT</th>
+        		<th>RW</th>
+        		<th>Kelurahan</th>
+        		<th>Kecamatan</th>
+        		<th>Kabupaten</th>
+        		<th>Provinsi</th>
+        		<th>KodePos</th>
+                <th>Tanggal</th>
+                <th>Action</th>
+            </tr>
+            <?php
             foreach ($_07_kk_data as $_07_kk)
             {
-                ?>
-                <tr>
-			<td width="80px"><?php echo ++$start ?></td>
-			<td><?php echo $_07_kk->Nomor ?></td>
-			<td><?php echo $_07_kk->PendudukNama ?></td>
-			<td><?php echo $_07_kk->Alamat ?></td>
-			<td><?php echo $_07_kk->RT ?></td>
-			<td><?php echo $_07_kk->RW ?></td>
-			<td><?php echo $_07_kk->KelurahanNama ?></td>
-			<td><?php echo $_07_kk->KecamatanNama ?></td>
-			<td><?php echo $_07_kk->KabupatenNama ?></td>
-			<td><?php echo $_07_kk->ProvinsiNama ?></td>
-			<td><?php echo $_07_kk->KodePos ?></td>
-			<td><?php echo $_07_kk->Tanggal ?></td>
-			<!-- <td><?php echo $_07_kk->idusers ?></td> -->
-			<!-- <td><?php echo $_07_kk->created_at ?></td> -->
-			<!-- <td><?php echo $_07_kk->updated_at ?></td> -->
-			<td style="text-align:center" width="200px">
-				<?php
-				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read');
-				echo ' | ';
-				echo anchor(site_url('_07_kk/update/'.$_07_kk->idkk),'Update');
-				echo ' | ';
-				echo anchor(site_url('_07_kk/delete/'.$_07_kk->idkk),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
-				?>
-			</td>
-		</tr>
-                <?php
+            ?>
+            <tr>
+    			<td width="80px"><?php echo ++$start ?></td>
+    			<td><?php echo $_07_kk->Nomor ?></td>
+    			<td><?php echo $_07_kk->PendudukNama ?></td>
+    			<td><?php echo $_07_kk->Alamat ?></td>
+    			<td><?php echo $_07_kk->RT ?></td>
+    			<td><?php echo $_07_kk->RW ?></td>
+    			<td><?php echo $_07_kk->KelurahanNama ?></td>
+    			<td><?php echo $_07_kk->KecamatanNama ?></td>
+    			<td><?php echo $_07_kk->KabupatenNama ?></td>
+    			<td><?php echo $_07_kk->ProvinsiNama ?></td>
+    			<td><?php echo $_07_kk->KodePos ?></td>
+                <td><?php echo $_07_kk->Tanggal ?></td>
+    			<td style="text-align:center" width="200px">
+    				<?php
+    				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read');
+    				echo ' | ';
+    				echo anchor(site_url('_07_kk/update/'.$_07_kk->idkk),'Update');
+    				echo ' | ';
+    				echo anchor(site_url('_07_kk/delete/'.$_07_kk->idkk),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+    				?>
+    			</td>
+            </tr>
+            <?php
             }
             ?>
         </table>
