@@ -44,28 +44,28 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>NIK</th>
-		<th>Nama</th>
-		<th>TempatLahir</th>
-		<th>TanggalLahir</th>
-		<th>JenisKelamin</th>
-		<th>GolonganDarah</th>
-		<th>Alamat</th>
-		<th>RT</th>
-		<th>RW</th>
-		<th>Kelurahan</th>
-		<th>Kecamatan</th>
-		<th>Kabupaten</th>
-		<th>Provinsi</th>
-		<th>Agama</th>
-		<th>StatusKawin</th>
-		<th>Pekerjaan</th>
-		<th>WargaNegara</th>
-		<th>BerlakuHingga</th>
-		<th>Iduser</th>
-		<th>Created At</th>
-		<th>Updated At</th>
-		<th>Action</th>
+        		<th>NIK</th>
+        		<th>Nama</th>
+        		<th>Tempat Lahir</th>
+        		<th>Tanggal Lahir</th>
+        		<th>Jenis Kelamin</th>
+        		<!-- <th>GolonganDarah</th>
+        		<th>Alamat</th>
+        		<th>RT</th>
+        		<th>RW</th>
+        		<th>Kelurahan</th>
+        		<th>Kecamatan</th>
+        		<th>Kabupaten</th>
+        		<th>Provinsi</th>
+        		<th>Agama</th>
+        		<th>StatusKawin</th>
+        		<th>Pekerjaan</th>
+        		<th>WargaNegara</th>
+        		<th>BerlakuHingga</th>
+        		<th>Iduser</th>
+        		<th>Created At</th>
+        		<th>Updated At</th> -->
+        		<th>Action</th>
             </tr><?php
             foreach ($_08_tamu_data as $_08_tamu)
             {
@@ -77,7 +77,7 @@
 			<td><?php echo $_08_tamu->TempatLahir ?></td>
 			<td><?php echo $_08_tamu->TanggalLahir ?></td>
 			<td><?php echo $_08_tamu->JenisKelamin ?></td>
-			<td><?php echo $_08_tamu->GolonganDarah ?></td>
+			<!-- <td><?php echo $_08_tamu->GolonganDarah ?></td>
 			<td><?php echo $_08_tamu->Alamat ?></td>
 			<td><?php echo $_08_tamu->RT ?></td>
 			<td><?php echo $_08_tamu->RW ?></td>
@@ -92,7 +92,7 @@
 			<td><?php echo $_08_tamu->BerlakuHingga ?></td>
 			<td><?php echo $_08_tamu->iduser ?></td>
 			<td><?php echo $_08_tamu->created_at ?></td>
-			<td><?php echo $_08_tamu->updated_at ?></td>
+			<td><?php echo $_08_tamu->updated_at ?></td> -->
 			<td style="text-align:center" width="200px">
 				<?php
 				echo anchor(site_url('_08_tamu/read/'.$_08_tamu->idtamu),'Read');

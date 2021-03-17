@@ -373,7 +373,7 @@
                                 <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link <?php echo $this->uri->segment(1) == '_06_penduduk' ? 'active' : ''; ?>">
                                     <i class="far fa-address-book nav-icon"></i>
                                     <p>
-                                    PENDUDUK
+                                    DATA PENDUDUK
                                     </p>
                                 </a>
                             </li>
@@ -391,7 +391,7 @@
                                 <a href="<?php echo site_url(); ?>_08_tamu" class="nav-link <?php echo $this->uri->segment(1) == '_08_tamu' ? 'active' : ''; ?>">
                                     <i class="far fa-address-card nav-icon"></i>
                                     <p>
-                                    TAMU
+                                    DATA TAMU
                                     </p>
                                 </a>
                             </li>
