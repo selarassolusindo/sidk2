@@ -17,7 +17,7 @@
         <div class="col-2">Nomor</div><div class="col"><?php echo $Nomor; ?></div>
     </div>
     <div class="row">
-        <div class="col-2">Nama Kepala Keluarga</div><div class="col-3"><?php echo $PendudukNama; ?></div>
+        <div class="col-2">Nama Kepala Keluarga</div><div class="col-3"><b><?php echo $PendudukNama; ?></b></div>
         <div class="col-1"></div>
         <div class="col-1">Kecamatan</div><div class="col-3"><?php echo $KecamatanNama; ?></div>
     </div>
