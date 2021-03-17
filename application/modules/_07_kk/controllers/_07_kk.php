@@ -72,6 +72,37 @@ class _07_kk extends CI_Controller
                 'KabupatenNama' => $row->KabupatenNama,
                 'ProvinsiNama' => $row->ProvinsiNama,
         	    );
+
+            /**
+             * ambil data dari tabel detail
+             */
+            $data['detail'] =
+                // $this->db
+                //     ->select('*')
+                //     ->from('t06_penduduk')
+                //     ->where('idkk', $id)
+                //     ->get()->result()
+                //     ;
+                $this->db
+                ->where('idkk', $id)
+                ->select('t06_penduduk.*')
+                ->select('t43_kabupaten.nama as kabupatenNama')
+                ->select('t41_agama.Agama as agamaNama')
+                ->select('t40_pendidikan.Pendidikan as pendidikanNama')
+                ->select('t39_pekerjaan.Pekerjaan as pekerjaanNama')
+                ->select('t38_status.Status as statusNama')
+                ->select('t37_hubungan.Hubungan as hubunganNama')
+                ->select('t36_warganegara.WargaNegara as wargaNegaraNama')
+                ->from('t06_penduduk')
+                ->join('t43_kabupaten', 't43_kabupaten.id = t06_penduduk.TempatLahir')
+                ->join('t41_agama', 't41_agama.idagama = t06_penduduk.Agama')
+                ->join('t40_pendidikan', 't40_pendidikan.idpendidikan = t06_penduduk.Pendidikan')
+                ->join('t39_pekerjaan', 't39_pekerjaan.idpekerjaan = t06_penduduk.Pekerjaan')
+                ->join('t38_status', 't38_status.idstatus = t06_penduduk.StatusKawin')
+                ->join('t37_hubungan', 't37_hubungan.idhubungan = t06_penduduk.HubunganKeluarga')
+                ->join('t36_warganegara', 't36_warganegara.idwarganegara = t06_penduduk.WargaNegara')
+                ->get()->result();
+
             // $this->load->view('_07_kk/t07_kk_read', $data);
             $data['_view'] = '_07_kk/t07_kk_read';
             $data['_caption'] = 'Kartu Keluarga';
