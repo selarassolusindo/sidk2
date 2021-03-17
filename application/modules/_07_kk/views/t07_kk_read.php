@@ -40,15 +40,15 @@
     <div class="row"><div class="col">&nbsp;</div></div>
 
     <div class="row">
-        <div class="border col"><b>No.</b></div>
-        <div class="border col-2"><b>Nama Lengkap</b></div>
-        <div class="border col-2"><b>NIK</b></div>
-        <div class="border col"><b>Jenis Kelamin</b></div>
-        <div class="border col-2"><b>Tempat Lahir</b></div>
-        <div class="border col-1"><b>Tanggal Lahir</b></div>
-        <div class="border col"><b>Agama</b></div>
-        <div class="border col"><b>Pendidikan</b></div>
-        <div class="border col"><b>Jenis Pekerjaan</b></div>
+        <div class="text-center border col"><b>No.</b></div>
+        <div class="text-center border col-2"><b>Nama Lengkap</b></div>
+        <div class="text-center border col-2"><b>NIK</b></div>
+        <div class="text-center border col"><b>Jenis Kelamin</b></div>
+        <div class="text-center border col-2"><b>Tempat Lahir</b></div>
+        <div class="text-center border col-1"><b>Tanggal Lahir</b></div>
+        <div class="text-center border col"><b>Agama</b></div>
+        <div class="text-center border col"><b>Pendidikan</b></div>
+        <div class="text-center border col"><b>Jenis Pekerjaan</b></div>
     </div>
     <?php foreach ($detail as $key => $d) { ?>
         <div class="row">
@@ -57,7 +57,7 @@
             <div class="border col-2"><?php echo $d->NIK ?></div>
             <div class="border col"><?php echo $d->JenisKelamin ?></div>
             <div class="border col-2"><?php echo $d->kabupatenNama ?></div>
-            <div class="border col-1"><?php echo $d->TanggalLahir ?></div>
+            <div class="border col-1"><?php echo date_format(date_create($d->TanggalLahir), 'd-m-Y') ?></div>
             <div class="border col"><?php echo $d->agamaNama?></div>
             <div class="border col"><?php echo $d->pendidikanNama?></div>
             <div class="border col"><?php echo $d->pekerjaanNama?></div>
@@ -67,20 +67,20 @@
     <div class="row"><div class="col">&nbsp;</div></div>
 
     <div class="row">
-        <div class="border col"><b>No.</b></div>
-        <div class="border col-1"><b>Status Perkawinan</b></div>
-        <div class="border col-2"><b>Hubungan Keluarga</b></div>
-        <div class="border col-2"><b>Kewarganegaraan</b></div>
-        <div class="border col-2"><b>Dokumen Imigrasi</b>
+        <div class="text-center border col"><b>No.</b></div>
+        <div class="text-center border col-1"><b>Status Perkawinan</b></div>
+        <div class="text-center border col-2"><b>Hubungan Keluarga</b></div>
+        <div class="text-center border col-2"><b>Kewarganegaraan</b></div>
+        <div class="text-center border col-2"><b>Dokumen Imigrasi</b>
             <div class="row">
-                <div class="border col-6"><b>No. Paspor</b></div>
-                <div class="border col-6"><b>No. Kitas/Kitap</b></div>
+                <div class="text-center border col-6"><b>No. Paspor</b></div>
+                <div class="text-center border col-6"><b>No. Kitas/Kitap</b></div>
             </div>
         </div>
-        <div class="border col-4"><b>Nama Orang Tua</b>
+        <div class="text-center border col-4"><b>Nama Orang Tua</b>
             <div class="row">
-                <div class="border col-6"><b>Ayah</b></div>
-                <div class="border col-6"><b>Ibu</b></div>
+                <div class="text-center border col-6"><b>Ayah</b></div>
+                <div class="text-center border col-6"><b>Ibu</b></div>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
     <div class="row"><div class="col">&nbsp;</div></div>
 
     <div class="row">
-        <div class="col-2">Tanggal</div><div class="col"><?php echo $Tanggal; ?></div>
+        <div class="col-2">Tanggal</div><div class="col"><?php echo date_format(date_create($Tanggal), 'd-m-Y'); ?></div>
     </div>
 
     <div class="row"><div class="col">&nbsp;</div></div>

@@ -4,7 +4,6 @@
                 <label for="varchar">Nomor <?php echo form_error('Nomor') ?></label>
                 <input type="text" class="form-control" name="Nomor" id="Nomor" placeholder="Nomor" value="<?php echo $Nomor; ?>" />
             </div>
-
             <div class="form-group col-3">
                 <label for="int">Nama <?php echo form_error('Nama') ?></label>
                 <select name="Nama" class="form-control" id="Penduduk">
@@ -58,9 +57,18 @@
                 <label for="varchar">KodePos <?php echo form_error('KodePos') ?></label>
                 <input type="text" class="form-control" name="KodePos" id="KodePos" placeholder="KodePos" value="<?php echo $KodePos; ?>" />
             </div>
-            <div class="form-group col-2">
+            <!-- <div class="form-group col-2">
                 <label for="date">Tanggal <?php echo form_error('Tanggal') ?></label>
                 <input type="text" class="form-control" name="Tanggal" id="Tanggal" placeholder="Tanggal" value="<?php echo $Tanggal; ?>" />
+            </div> -->
+            <div class="form-group">
+                <label for="date">Tanggal <?php echo form_error('Tanggal') ?></label>
+                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                    <input placeholder="Tanggal Terbit" type="text" name="Tanggal" value="<?php echo $Tanggal; ?>" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                </div>
             </div>
         </div>
 
@@ -280,4 +288,24 @@
     	function hapus(index){
     		$('#'+index).remove();
     	}
+
+
+        $(function () {
+            //Date range picker
+            $('#reservation').daterangepicker();
+            $('#reservationdate').datetimepicker({
+                format: 'DD-MM-YYYY'
+            });
+            $('#reservation2').daterangepicker();
+            $('#reservationdate2').datetimepicker({
+                format: 'DD-MM-YYYY'
+            });
+        })
+        // $(function () {
+        //     //Date range picker
+        //     $('#reservationdate').datetimepicker({
+        //         format: 'DD-MM-YYYY'
+        //     })
+        // })
+
     </script>

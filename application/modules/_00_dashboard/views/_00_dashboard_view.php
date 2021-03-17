@@ -386,6 +386,15 @@
                                     </p>
                                 </a>
                             </li>
+                            <!-- tamu -->
+                            <li class="nav-item">
+                                <a href="<?php echo site_url(); ?>_08_tamu" class="nav-link <?php echo $this->uri->segment(1) == '_08_tamu' ? 'active' : ''; ?>">
+                                    <i class="far fa-address-card nav-icon"></i>
+                                    <p>
+                                    TAMU
+                                    </p>
+                                </a>
+                            </li>
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>
