@@ -71,10 +71,18 @@
         <div class="border col-1"><b>Status Perkawinan</b></div>
         <div class="border col-2"><b>Hubungan Keluarga</b></div>
         <div class="border col-2"><b>Kewarganegaraan</b></div>
-        <div class="border col-1"><b>No. Paspor</b></div>
-        <div class="border col-1"><b>No. Kitas/Kitap</b></div>
-        <div class="border col-2"><b>Ayah</b></div>
-        <div class="border col-2"><b>Ibu</b></div>
+        <div class="border col-2"><b>Dokumen Imigrasi</b>
+            <div class="row">
+                <div class="border col-6"><b>No. Paspor</b></div>
+                <div class="border col-6"><b>No. Kitas/Kitap</b></div>
+            </div>
+        </div>
+        <div class="border col-4"><b>Nama Orang Tua</b>
+            <div class="row">
+                <div class="border col-6"><b>Ayah</b></div>
+                <div class="border col-6"><b>Ibu</b></div>
+            </div>
+        </div>
     </div>
     <?php foreach ($detail as $key => $d) { ?>
         <div class="row">
