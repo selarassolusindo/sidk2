@@ -49,12 +49,12 @@
         		<th>Alamat</th>
         		<th>RT</th>
         		<th>RW</th>
-        		<th>Kelurahan</th>
+        		<!-- <th>Kelurahan</th>
         		<th>Kecamatan</th>
         		<th>Kabupaten</th>
         		<th>Provinsi</th>
         		<th>KodePos</th>
-                <th>Tanggal</th>
+                <th>Tanggal</th> -->
                 <th>Action</th>
             </tr>
             <?php
@@ -68,12 +68,12 @@
     			<td><?php echo $_07_kk->Alamat ?></td>
     			<td><?php echo $_07_kk->RT ?></td>
     			<td><?php echo $_07_kk->RW ?></td>
-    			<td><?php echo $_07_kk->KelurahanNama ?></td>
+    			<!-- <td><?php echo $_07_kk->KelurahanNama ?></td>
     			<td><?php echo $_07_kk->KecamatanNama ?></td>
     			<td><?php echo $_07_kk->KabupatenNama ?></td>
     			<td><?php echo $_07_kk->ProvinsiNama ?></td>
     			<td><?php echo $_07_kk->KodePos ?></td>
-                <td><?php echo $_07_kk->Tanggal ?></td>
+                <td><?php echo $_07_kk->Tanggal ?></td> -->
     			<td style="text-align:center" width="200px">
     				<?php
     				echo anchor(site_url('_07_kk/read/'.$_07_kk->idkk),'Read');
