@@ -70,11 +70,11 @@ class _08_tamu extends CI_Controller
         		'Pekerjaan' => $row->Pekerjaan,
         		'WargaNegara' => $row->WargaNegara,
         		'BerlakuHingga' => $row->BerlakuHingga,
-        		'iduser' => $row->iduser,
-        		'created_at' => $row->created_at,
-        		'updated_at' => $row->updated_at,
+        		// 'iduser' => $row->iduser,
+        		// 'created_at' => $row->created_at,
+        		// 'updated_at' => $row->updated_at,
             );
-            
+
             // $this->load->view('_08_tamu/t08_tamu_read', $data);
             $data['_view'] = '_08_tamu/t08_tamu_read';
             $data['_caption'] = 'Tamu';
@@ -87,6 +87,15 @@ class _08_tamu extends CI_Controller
 
     public function create()
     {
+        $this->load->model('_41_agama/_41_agama_model');
+        $agama = $this->_41_agama_model->get_all();
+        $this->load->model('_38_status/_38_status_model');
+        $status = $this->_38_status_model->get_all();
+        $this->load->model('_39_pekerjaan/_39_pekerjaan_model');
+        $pekerjaan = $this->_39_pekerjaan_model->get_all();
+        $this->load->model('_36_warganegara/_36_warganegara_model');
+        $warganegara = $this->_36_warganegara_model->get_all();
+
         $data = array(
             'button' => 'Create',
             'action' => site_url('_08_tamu/create_action'),
@@ -109,9 +118,13 @@ class _08_tamu extends CI_Controller
     	    'Pekerjaan' => set_value('Pekerjaan'),
     	    'WargaNegara' => set_value('WargaNegara'),
     	    'BerlakuHingga' => set_value('BerlakuHingga'),
-    	    'iduser' => set_value('iduser'),
-    	    'created_at' => set_value('created_at'),
-    	    'updated_at' => set_value('updated_at'),
+    	    // 'iduser' => set_value('iduser'),
+    	    // 'created_at' => set_value('created_at'),
+    	    // 'updated_at' => set_value('updated_at'),
+            'agamaData' => $agama,
+            'statusData' => $status,
+            'pekerjaanData' => $pekerjaan,
+            'warganegaraData' => $warganegara,
         );
 
         // $this->load->view('_08_tamu/t08_tamu_form', $data);
@@ -131,7 +144,7 @@ class _08_tamu extends CI_Controller
         		'NIK' => $this->input->post('NIK',TRUE),
         		'Nama' => $this->input->post('Nama',TRUE),
         		'TempatLahir' => $this->input->post('TempatLahir',TRUE),
-        		'TanggalLahir' => $this->input->post('TanggalLahir',TRUE),
+                'TanggalLahir' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('TanggalLahir',TRUE)))),
         		'JenisKelamin' => $this->input->post('JenisKelamin',TRUE),
         		'GolonganDarah' => $this->input->post('GolonganDarah',TRUE),
         		'Alamat' => $this->input->post('Alamat',TRUE),
@@ -145,10 +158,8 @@ class _08_tamu extends CI_Controller
         		'StatusKawin' => $this->input->post('StatusKawin',TRUE),
         		'Pekerjaan' => $this->input->post('Pekerjaan',TRUE),
         		'WargaNegara' => $this->input->post('WargaNegara',TRUE),
-        		'BerlakuHingga' => $this->input->post('BerlakuHingga',TRUE),
-        		'iduser' => $this->input->post('iduser',TRUE),
-        		'created_at' => $this->input->post('created_at',TRUE),
-        		'updated_at' => $this->input->post('updated_at',TRUE),
+                'BerlakuHingga' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('BerlakuHingga',TRUE)))),
+                'idusers' => $this->session->userdata('user_id'),
             );
 
             $this->_08_tamu_model->insert($data);
@@ -162,6 +173,21 @@ class _08_tamu extends CI_Controller
         $row = $this->_08_tamu_model->get_by_id($id);
 
         if ($row) {
+
+            $this->load->model('_45_desa/_45_desa_model');
+            $this->load->model('_44_kecamatan/_44_kecamatan_model');
+            $this->load->model('_43_kabupaten/_43_kabupaten_model');
+            $this->load->model('_42_provinsi/_42_provinsi_model');
+
+            $this->load->model('_41_agama/_41_agama_model');
+            $agama = $this->_41_agama_model->get_all();
+            $this->load->model('_38_status/_38_status_model');
+            $status = $this->_38_status_model->get_all();
+            $this->load->model('_39_pekerjaan/_39_pekerjaan_model');
+            $pekerjaan = $this->_39_pekerjaan_model->get_all();
+            $this->load->model('_36_warganegara/_36_warganegara_model');
+            $warganegara = $this->_36_warganegara_model->get_all();
+
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('_08_tamu/update_action'),
@@ -169,7 +195,7 @@ class _08_tamu extends CI_Controller
         		'NIK' => set_value('NIK', $row->NIK),
         		'Nama' => set_value('Nama', $row->Nama),
         		'TempatLahir' => set_value('TempatLahir', $row->TempatLahir),
-        		'TanggalLahir' => set_value('TanggalLahir', $row->TanggalLahir),
+        		'TanggalLahir' => set_value('TanggalLahir', date_format(date_create($row->TanggalLahir), 'd-m-Y')),
         		'JenisKelamin' => set_value('JenisKelamin', $row->JenisKelamin),
         		'GolonganDarah' => set_value('GolonganDarah', $row->GolonganDarah),
         		'Alamat' => set_value('Alamat', $row->Alamat),
@@ -183,10 +209,16 @@ class _08_tamu extends CI_Controller
         		'StatusKawin' => set_value('StatusKawin', $row->StatusKawin),
         		'Pekerjaan' => set_value('Pekerjaan', $row->Pekerjaan),
         		'WargaNegara' => set_value('WargaNegara', $row->WargaNegara),
-        		'BerlakuHingga' => set_value('BerlakuHingga', $row->BerlakuHingga),
-        		'iduser' => set_value('iduser', $row->iduser),
-        		'created_at' => set_value('created_at', $row->created_at),
-        		'updated_at' => set_value('updated_at', $row->updated_at),
+                'BerlakuHingga' => set_value('BerlakuHingga', date_format(date_create($row->BerlakuHingga), 'd-m-Y')),
+                'agamaData' => $agama,
+                'statusData' => $status,
+                'pekerjaanData' => $pekerjaan,
+                'warganegaraData' => $warganegara,
+                'TempatLahirNama' => $this->_43_kabupaten_model->get_by_id($row->TempatLahir)->nama,
+                'KelurahanNama' => $this->_45_desa_model->get_by_id($row->Kelurahan)->nama,
+                'KecamatanNama' => $this->_44_kecamatan_model->get_by_id($row->Kecamatan)->nama,
+                'KabupatenNama' => $this->_43_kabupaten_model->get_by_id($row->Kabupaten)->nama,
+                'ProvinsiNama' => $this->_42_provinsi_model->get_by_id($row->Provinsi)->nama,
             );
 
             // $this->load->view('_08_tamu/t08_tamu_form', $data);
@@ -210,7 +242,7 @@ class _08_tamu extends CI_Controller
         		'NIK' => $this->input->post('NIK',TRUE),
         		'Nama' => $this->input->post('Nama',TRUE),
         		'TempatLahir' => $this->input->post('TempatLahir',TRUE),
-        		'TanggalLahir' => $this->input->post('TanggalLahir',TRUE),
+        		'TanggalLahir' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('TanggalLahir',TRUE)))),
         		'JenisKelamin' => $this->input->post('JenisKelamin',TRUE),
         		'GolonganDarah' => $this->input->post('GolonganDarah',TRUE),
         		'Alamat' => $this->input->post('Alamat',TRUE),
@@ -224,10 +256,8 @@ class _08_tamu extends CI_Controller
         		'StatusKawin' => $this->input->post('StatusKawin',TRUE),
         		'Pekerjaan' => $this->input->post('Pekerjaan',TRUE),
         		'WargaNegara' => $this->input->post('WargaNegara',TRUE),
-        		'BerlakuHingga' => $this->input->post('BerlakuHingga',TRUE),
-        		'iduser' => $this->input->post('iduser',TRUE),
-        		'created_at' => $this->input->post('created_at',TRUE),
-        		'updated_at' => $this->input->post('updated_at',TRUE),
+                'BerlakuHingga' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('BerlakuHingga',TRUE)))),
+                'idusers' => $this->session->userdata('user_id'),
             );
 
             $this->_08_tamu_model->update($this->input->post('idtamu', TRUE), $data);
@@ -270,9 +300,6 @@ class _08_tamu extends CI_Controller
     	$this->form_validation->set_rules('Pekerjaan', 'pekerjaan', 'trim|required');
     	$this->form_validation->set_rules('WargaNegara', 'warganegara', 'trim|required');
     	$this->form_validation->set_rules('BerlakuHingga', 'berlakuhingga', 'trim|required');
-    	$this->form_validation->set_rules('iduser', 'iduser', 'trim|required');
-    	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-    	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
 
     	$this->form_validation->set_rules('idtamu', 'idtamu', 'trim');
     	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

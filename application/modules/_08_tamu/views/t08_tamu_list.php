@@ -49,22 +49,6 @@
         		<th>Tempat Lahir</th>
         		<th>Tanggal Lahir</th>
         		<th>Jenis Kelamin</th>
-        		<!-- <th>GolonganDarah</th>
-        		<th>Alamat</th>
-        		<th>RT</th>
-        		<th>RW</th>
-        		<th>Kelurahan</th>
-        		<th>Kecamatan</th>
-        		<th>Kabupaten</th>
-        		<th>Provinsi</th>
-        		<th>Agama</th>
-        		<th>StatusKawin</th>
-        		<th>Pekerjaan</th>
-        		<th>WargaNegara</th>
-        		<th>BerlakuHingga</th>
-        		<th>Iduser</th>
-        		<th>Created At</th>
-        		<th>Updated At</th> -->
         		<th>Action</th>
             </tr>
             <?php
@@ -75,25 +59,10 @@
     			<td width="80px"><?php echo ++$start ?></td>
     			<td><?php echo $_08_tamu->NIK ?></td>
     			<td><?php echo $_08_tamu->Nama ?></td>
-    			<td><?php echo $_08_tamu->TempatLahir ?></td>
-    			<td><?php echo $_08_tamu->TanggalLahir ?></td>
+    			<!-- <td><?php echo $_08_tamu->TempatLahir ?></td> -->
+                <td><?php echo $_08_tamu->kabupatenNama ?></td>
+                <td><?php echo date_format(date_create($_08_tamu->TanggalLahir), 'd-m-Y') ?></td>
     			<td><?php echo $_08_tamu->JenisKelamin ?></td>
-    			<!-- <td><?php echo $_08_tamu->GolonganDarah ?></td>
-    			<td><?php echo $_08_tamu->Alamat ?></td>
-    			<td><?php echo $_08_tamu->RT ?></td>
-    			<td><?php echo $_08_tamu->RW ?></td>
-    			<td><?php echo $_08_tamu->Kelurahan ?></td>
-    			<td><?php echo $_08_tamu->Kecamatan ?></td>
-    			<td><?php echo $_08_tamu->Kabupaten ?></td>
-    			<td><?php echo $_08_tamu->Provinsi ?></td>
-    			<td><?php echo $_08_tamu->Agama ?></td>
-    			<td><?php echo $_08_tamu->StatusKawin ?></td>
-    			<td><?php echo $_08_tamu->Pekerjaan ?></td>
-    			<td><?php echo $_08_tamu->WargaNegara ?></td>
-    			<td><?php echo $_08_tamu->BerlakuHingga ?></td>
-    			<td><?php echo $_08_tamu->iduser ?></td>
-    			<td><?php echo $_08_tamu->created_at ?></td>
-    			<td><?php echo $_08_tamu->updated_at ?></td> -->
     			<td style="text-align:center" width="200px">
     				<?php
     				echo anchor(site_url('_08_tamu/read/'.$_08_tamu->idtamu),'Read');
