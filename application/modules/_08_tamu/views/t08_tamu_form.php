@@ -11,19 +11,19 @@
             </div>
     	    <div class="form-group col-2">
                 <label for="int">Tempat Lahir <?php echo form_error('TempatLahir') ?></label>
-                <input type="text" class="form-control" name="TempatLahir" id="TempatLahir" placeholder="TempatLahir" value="<?php echo $TempatLahir; ?>" />
+                <input type="text" class="form-control" name="TempatLahir" id="TempatLahir" placeholder="Tempat Lahir" value="<?php echo $TempatLahir; ?>" />
             </div>
     	    <div class="form-group col-2">
                 <label for="date">Tanggal Lahir <?php echo form_error('TanggalLahir') ?></label>
-                <input type="text" class="form-control" name="TanggalLahir" id="TanggalLahir" placeholder="TanggalLahir" value="<?php echo $TanggalLahir; ?>" />
+                <input type="text" class="form-control" name="TanggalLahir" id="TanggalLahir" placeholder="Tanggal Lahir" value="<?php echo $TanggalLahir; ?>" />
             </div>
             <div class="form-group col-2">
                 <label for="enum">Jenis Kelamin <?php echo form_error('JenisKelamin') ?></label>
-                <input type="text" class="form-control" name="JenisKelamin" id="JenisKelamin" placeholder="JenisKelamin" value="<?php echo $JenisKelamin; ?>" />
+                <input type="text" class="form-control" name="JenisKelamin" id="JenisKelamin" placeholder="Jenis Kelamin" value="<?php echo $JenisKelamin; ?>" />
             </div>
             <div class="form-group col-1">
                 <label for="varchar">Gol. Darah <?php echo form_error('GolonganDarah') ?></label>
-                <input type="text" class="form-control" name="GolonganDarah" id="GolonganDarah" placeholder="GolonganDarah" value="<?php echo $GolonganDarah; ?>" />
+                <input type="text" class="form-control" name="GolonganDarah" id="GolonganDarah" placeholder="Gol. Darah" value="<?php echo $GolonganDarah; ?>" />
             </div>
         </div>
 
@@ -68,7 +68,7 @@
             </div>
     	    <div class="form-group col-2">
                 <label for="tinyint">Status Perkawinan <?php echo form_error('StatusKawin') ?></label>
-                <input type="text" class="form-control" name="StatusKawin" id="StatusKawin" placeholder="StatusKawin" value="<?php echo $StatusKawin; ?>" />
+                <input type="text" class="form-control" name="StatusKawin" id="StatusKawin" placeholder="Status Perkawinan" value="<?php echo $StatusKawin; ?>" />
             </div>
     	    <div class="form-group col-2">
                 <label for="tinyint">Pekerjaan <?php echo form_error('Pekerjaan') ?></label>
@@ -76,11 +76,11 @@
             </div>
     	    <div class="form-group col-2">
                 <label for="tinyint">Kewarganegaraan <?php echo form_error('WargaNegara') ?></label>
-                <input type="text" class="form-control" name="WargaNegara" id="WargaNegara" placeholder="WargaNegara" value="<?php echo $WargaNegara; ?>" />
+                <input type="text" class="form-control" name="WargaNegara" id="WargaNegara" placeholder="Kewarganegaraan" value="<?php echo $WargaNegara; ?>" />
             </div>
     	    <div class="form-group col-2">
                 <label for="date">Berlaku Hingga <?php echo form_error('BerlakuHingga') ?></label>
-                <input type="text" class="form-control" name="BerlakuHingga" id="BerlakuHingga" placeholder="BerlakuHingga" value="<?php echo $BerlakuHingga; ?>" />
+                <input type="text" class="form-control" name="BerlakuHingga" id="BerlakuHingga" placeholder="Berlaku Hingga" value="<?php echo $BerlakuHingga; ?>" />
             </div>
         </div>
 
