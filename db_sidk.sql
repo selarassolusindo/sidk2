@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2021 at 12:56 PM
+-- Generation Time: Mar 19, 2021 at 11:02 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -150,7 +150,46 @@ CREATE TABLE `t08_tamu` (
   `Pekerjaan` tinyint(4) NOT NULL,
   `WargaNegara` tinyint(4) NOT NULL,
   `BerlakuHingga` date NOT NULL,
-  `iduser` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t08_tamu`
+--
+
+INSERT INTO `t08_tamu` (`idtamu`, `NIK`, `Nama`, `TempatLahir`, `TanggalLahir`, `JenisKelamin`, `GolonganDarah`, `Alamat`, `RT`, `RW`, `Kelurahan`, `Kecamatan`, `Kabupaten`, `Provinsi`, `Agama`, `StatusKawin`, `Pekerjaan`, `WargaNegara`, `BerlakuHingga`, `idusers`, `created_at`, `updated_at`) VALUES
+(1, '3515112412740001', 'Dodo Ananto', 154, '1974-12-24', 'LAKI-LAKI', 'A', 'Perumdam TA 130', '26', '7', 43999, 3528, 240, 15, 1, 1, 2, 1, '2021-03-18', 1, '2021-03-18 16:25:09', '2021-03-18 16:51:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t30_masuk`
+--
+
+CREATE TABLE `t30_masuk` (
+  `idmasuk` int(11) NOT NULL,
+  `NomorKK` int(11) NOT NULL,
+  `Tanggal` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t30_mutasi`
+--
+
+CREATE TABLE `t30_mutasi` (
+  `idmutasi` int(11) NOT NULL,
+  `idalamat` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `Jenis` enum('MASUK','KELUAR') NOT NULL,
+  `idkk` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -87521,7 +87560,7 @@ CREATE TABLE `t46_users` (
 --
 
 INSERT INTO `t46_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1616046568, 1, 'Admin', NULL, NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1616126183, 1, 'Admin', NULL, NULL, NULL),
 (2, '::1', 'dodo', '$2y$10$DhC9If3ZtQ8WxJEwaoSzX.7H3bQTTyEjtvcfcbQyDxomgTiS5hw7m', 'e@e.e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615481968, 1615733948, 1, 'Dodo', NULL, NULL, NULL),
 (3, '::1', 'adi', '$2y$10$hzjCMjtQt6SNmMf2KFdelepGfN6FW37q39dIXWe6Y3/mpJcLLfY0O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615728601, 1615731303, 1, 'Adi', NULL, NULL, NULL);
 
@@ -87610,6 +87649,18 @@ ALTER TABLE `t07_kk`
 --
 ALTER TABLE `t08_tamu`
   ADD PRIMARY KEY (`idtamu`);
+
+--
+-- Indexes for table `t30_masuk`
+--
+ALTER TABLE `t30_masuk`
+  ADD PRIMARY KEY (`idmasuk`);
+
+--
+-- Indexes for table `t30_mutasi`
+--
+ALTER TABLE `t30_mutasi`
+  ADD PRIMARY KEY (`idmutasi`);
 
 --
 -- Indexes for table `t36_warganegara`
@@ -87728,7 +87779,19 @@ ALTER TABLE `t07_kk`
 -- AUTO_INCREMENT for table `t08_tamu`
 --
 ALTER TABLE `t08_tamu`
-  MODIFY `idtamu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtamu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `t30_masuk`
+--
+ALTER TABLE `t30_masuk`
+  MODIFY `idmasuk` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `t30_mutasi`
+--
+ALTER TABLE `t30_mutasi`
+  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t36_warganegara`

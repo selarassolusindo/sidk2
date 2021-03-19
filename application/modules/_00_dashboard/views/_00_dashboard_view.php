@@ -368,33 +368,144 @@
                                 </ul>
                             </li>
 
-                            <!-- penduduk -->
-                            <li class="nav-item">
-                                <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link <?php echo $this->uri->segment(1) == '_06_penduduk' ? 'active' : ''; ?>">
-                                    <i class="far fa-address-book nav-icon"></i>
+                            <!-- warga -->
+                            <li class="nav-item has-treeview
+                                <?php
+                                switch ($this->uri->segment(1)) {
+                                    case '_06_penduduk':
+                                    case '_07_kk':
+                                    case '_30_masuk':
+                                    case '_31_keluar':
+                                        echo 'menu-open';
+                                        break;
+                                    default:
+                                        echo '';
+                                }
+                                ?>
+                            ">
+                                <a href="#" class="nav-link
+                                    <?php
+                                    switch ($this->uri->segment(1)) {
+                                        case '_06_penduduk':
+                                        case '_07_kk':
+                                        case '_30_masuk':
+                                        case '_31_keluar':
+                                            echo 'active';
+                                            break;
+                                        default:
+                                            echo '';
+                                    }
+                                    ?>
+                                ">
+                                    <i class="fas fa-users nav-icon"></i>
                                     <p>
-                                    DATA PENDUDUK
+                                    WARGA
+                                    <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
+                                <ul class="nav nav-treeview">
+                                    <!-- penduduk -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link <?php echo $this->uri->segment(1) == '_06_penduduk' ? 'active' : ''; ?>">
+                                            <i class="far fa-address-book nav-icon"></i>
+                                            <p>
+                                            DATA PENDUDUK
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <!-- kartu keluarga -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_07_kk" class="nav-link <?php echo $this->uri->segment(1) == '_07_kk' ? 'active' : ''; ?>">
+                                            <i class="far fa-address-card nav-icon"></i>
+                                            <p>
+                                            KARTU KELUARGA
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <!-- mutasi -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_30_mutasi" class="nav-link <?php echo $this->uri->segment(1) == '_30_mutasi' ? 'active' : ''; ?>">
+                                            <i class="fas fa-exchange-alt nav-icon"></i>
+                                            <p>
+                                            MUTASI
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <!-- pindahan masuk -->
+                                    <!-- <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_30_masuk" class="nav-link <?php echo $this->uri->segment(1) == '_30_masuk' ? 'active' : ''; ?>">
+                                            <i class="fas fa-people-carry nav-icon"></i>
+                                            <p>
+                                            PINDAHAN MASUK
+                                            </p>
+                                        </a>
+                                    </li> -->
+                                    <!-- pindahan keluar -->
+                                    <!-- <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_31_keluar" class="nav-link <?php echo $this->uri->segment(1) == '_31_keluar' ? 'active' : ''; ?>">
+                                            <i class="fas fa-luggage-cart nav-icon"></i>
+                                            <p>
+                                            PINDAHAN KELUAR
+                                            </p>
+                                        </a>
+                                    </li> -->
+                                </ul>
                             </li>
-                            <!-- kartu keluarga -->
-                            <li class="nav-item">
-                                <a href="<?php echo site_url(); ?>_07_kk" class="nav-link <?php echo $this->uri->segment(1) == '_07_kk' ? 'active' : ''; ?>">
-                                    <i class="far fa-address-card nav-icon"></i>
-                                    <p>
-                                    KARTU KELUARGA
-                                    </p>
-                                </a>
-                            </li>
+
                             <!-- tamu -->
-                            <li class="nav-item">
-                                <a href="<?php echo site_url(); ?>_08_tamu" class="nav-link <?php echo $this->uri->segment(1) == '_08_tamu' ? 'active' : ''; ?>">
-                                    <i class="far fa-address-card nav-icon"></i>
+                            <li class="nav-item has-treeview
+                                <?php
+                                switch ($this->uri->segment(1)) {
+                                    case '_08_tamu':
+                                    case '_32_inap':
+                                        echo 'menu-open';
+                                        break;
+                                    default:
+                                        echo '';
+                                }
+                                ?>
+                            ">
+                                <a href="#" class="nav-link
+                                    <?php
+                                    switch ($this->uri->segment(1)) {
+                                        case '_08_tamu':
+                                        case '_32_inap':
+                                            echo 'active';
+                                            break;
+                                        default:
+                                            echo '';
+                                    }
+                                    ?>
+                                ">
+                                    <i class="fas fa-taxi nav-icon"></i>
                                     <p>
-                                    DATA TAMU
+                                    TAMU
+                                    <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
+                                <ul class="nav nav-treeview">
+                                    <!-- tamu -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_08_tamu" class="nav-link <?php echo $this->uri->segment(1) == '_08_tamu' ? 'active' : ''; ?>">
+                                            <i class="fas fa-id-card-alt nav-icon"></i>
+                                            <p>
+                                            DATA TAMU
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <!-- tamu menginap -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_32_inap" class="nav-link <?php echo $this->uri->segment(1) == '_32_inap' ? 'active' : ''; ?>">
+                                            <i class="fas fa-bed nav-icon"></i>
+                                            <p>
+                                            TAMU MENGINAP
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+
+                            <!-- laporan -->
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>

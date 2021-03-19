@@ -25,8 +25,30 @@ class _08_tamu_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
+        // $this->db->where($this->id, $id);
+        // return $this->db->get($this->table)->row();
         $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $this->db->select($this->table . '.*');
+        $this->db->select('t43_kabupaten.nama as TempatLahirNama');
+        $this->db->select('t41_agama.Agama as agamaNama');
+        $this->db->select('t39_pekerjaan.Pekerjaan as pekerjaanNama');
+        $this->db->select('t38_status.Status as statusNama');
+        $this->db->select('t36_warganegara.WargaNegara as wargaNegaraNama');
+        $this->db->select('t45_desa.nama as KelurahanNama');
+        $this->db->select('t44_kecamatan.nama as KecamatanNama');
+        $this->db->select('t43_kabupaten2.nama as KabupatenNama');
+        $this->db->select('t42_provinsi.nama as ProvinsiNama');
+        $this->db->from($this->table);
+        $this->db->join('t43_kabupaten', 't43_kabupaten.id = '.$this->table.'.TempatLahir');
+        $this->db->join('t41_agama', 't41_agama.idagama = '.$this->table.'.Agama');
+        $this->db->join('t39_pekerjaan', 't39_pekerjaan.idpekerjaan = '.$this->table.'.Pekerjaan');
+        $this->db->join('t38_status', 't38_status.idstatus = '.$this->table.'.StatusKawin');
+        $this->db->join('t36_warganegara', 't36_warganegara.idwarganegara = '.$this->table.'.WargaNegara');
+        $this->db->join('t45_desa', 't45_desa.id = '.$this->table.'.Kelurahan');
+        $this->db->join('t44_kecamatan', 't44_kecamatan.id = '.$this->table.'.Kecamatan');
+        $this->db->join('t43_kabupaten as t43_kabupaten2 ', 't43_kabupaten2.id = '.$this->table.'.Kabupaten');
+        $this->db->join('t42_provinsi', 't42_provinsi.id = '.$this->table.'.Provinsi'); // echo $this->db->get_compiled_select();
+        return $this->db->get()->row();
     }
 
     // get total rows
