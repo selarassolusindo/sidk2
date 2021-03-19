@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html>
     <head>
         <title>harviacode.com - codeigniter crud generator</title>
@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">T30_mutasi List</h2>
+        <h2 style="margin-top:0px">T30_mutasi List</h2> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <?php echo anchor(site_url('_30_mutasi/create'),'Create', 'class="btn btn-primary"'); ?>
@@ -27,7 +27,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
-                            <?php 
+                            <?php
                                 if ($q <> '')
                                 {
                                     ?>
@@ -44,50 +44,51 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>Idalamat</th>
-		<th>Tanggal</th>
-		<th>Jenis</th>
-		<th>Idkk</th>
-		<th>Idusers</th>
-		<th>Created At</th>
-		<th>Updated At</th>
-		<th>Action</th>
-            </tr><?php
+        		<th>Idalamat</th>
+        		<th>Tanggal</th>
+        		<th>Jenis</th>
+        		<th>Idkk</th>
+        		<!-- <th>Idusers</th> -->
+        		<!-- <th>Created At</th> -->
+        		<!-- <th>Updated At</th> -->
+        		<th>Action</th>
+            </tr>
+            <?php
             foreach ($_30_mutasi_data as $_30_mutasi)
             {
-                ?>
-                <tr>
-			<td width="80px"><?php echo ++$start ?></td>
-			<td><?php echo $_30_mutasi->idalamat ?></td>
-			<td><?php echo $_30_mutasi->tanggal ?></td>
-			<td><?php echo $_30_mutasi->Jenis ?></td>
-			<td><?php echo $_30_mutasi->idkk ?></td>
-			<td><?php echo $_30_mutasi->idusers ?></td>
-			<td><?php echo $_30_mutasi->created_at ?></td>
-			<td><?php echo $_30_mutasi->updated_at ?></td>
-			<td style="text-align:center" width="200px">
-				<?php 
-				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idmutasi),'Read'); 
-				echo ' | '; 
-				echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idmutasi),'Update'); 
-				echo ' | '; 
-				echo anchor(site_url('_30_mutasi/delete/'.$_30_mutasi->idmutasi),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
-				?>
-			</td>
-		</tr>
-                <?php
+            ?>
+            <tr>
+    			<td width="80px"><?php echo ++$start ?></td>
+    			<td><?php echo $_30_mutasi->idalamat ?></td>
+    			<td><?php echo $_30_mutasi->tanggal ?></td>
+    			<td><?php echo $_30_mutasi->Jenis ?></td>
+    			<td><?php echo $_30_mutasi->idkk ?></td>
+    			<!-- <td><?php echo $_30_mutasi->idusers ?></td> -->
+    			<!-- <td><?php echo $_30_mutasi->created_at ?></td> -->
+    			<!-- <td><?php echo $_30_mutasi->updated_at ?></td> -->
+    			<td style="text-align:center" width="200px">
+    				<?php
+    				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idmutasi),'Read');
+    				echo ' | ';
+    				echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idmutasi),'Update');
+    				echo ' | ';
+    				echo anchor(site_url('_30_mutasi/delete/'.$_30_mutasi->idmutasi),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+    				?>
+    			</td>
+    		</tr>
+            <?php
             }
             ?>
         </table>
         <div class="row">
             <div class="col-md-6">
                 <a href="#" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-		<?php echo anchor(site_url('_30_mutasi/excel'), 'Excel', 'class="btn btn-primary"'); ?>
-		<?php echo anchor(site_url('_30_mutasi/word'), 'Word', 'class="btn btn-primary"'); ?>
-	    </div>
+        		<?php echo anchor(site_url('_30_mutasi/excel'), 'Excel', 'class="btn btn-primary"'); ?>
+        		<?php echo anchor(site_url('_30_mutasi/word'), 'Word', 'class="btn btn-primary"'); ?>
+    	    </div>
             <div class="col-md-6 text-right">
                 <?php echo $pagination ?>
             </div>
         </div>
-    </body>
-</html>
+    <!-- </body>
+</html> -->

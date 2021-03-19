@@ -376,6 +376,7 @@
                                     case '_07_kk':
                                     case '_30_masuk':
                                     case '_31_keluar':
+                                    case '_30_mutasi':
                                         echo 'menu-open';
                                         break;
                                     default:
@@ -390,6 +391,7 @@
                                         case '_07_kk':
                                         case '_30_masuk':
                                         case '_31_keluar':
+                                        case '_30_mutasi':
                                             echo 'active';
                                             break;
                                         default:
@@ -427,7 +429,7 @@
                                         <a href="<?php echo site_url(); ?>_30_mutasi" class="nav-link <?php echo $this->uri->segment(1) == '_30_mutasi' ? 'active' : ''; ?>">
                                             <i class="fas fa-exchange-alt nav-icon"></i>
                                             <p>
-                                            MUTASI
+                                            PINDAHAN
                                             </p>
                                         </a>
                                     </li>

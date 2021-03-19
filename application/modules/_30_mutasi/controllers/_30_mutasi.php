@@ -16,13 +16,13 @@ class _30_mutasi extends CI_Controller
     {
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
-        
+
         if ($q <> '') {
-            $config['base_url'] = base_url() . '_30_mutasi/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . '_30_mutasi/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . '_30_mutasi?q=' . urlencode($q);
+            $config['first_url'] = base_url() . '_30_mutasi?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . '_30_mutasi/index.html';
-            $config['first_url'] = base_url() . '_30_mutasi/index.html';
+            $config['base_url'] = base_url() . '_30_mutasi';
+            $config['first_url'] = base_url() . '_30_mutasi';
         }
 
         $config['per_page'] = 10;
@@ -40,48 +40,57 @@ class _30_mutasi extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('_30_mutasi/t30_mutasi_list', $data);
+        // $this->load->view('_30_mutasi/t30_mutasi_list', $data);
+        $data['_view'] = '_30_mutasi/t30_mutasi_list';
+        $data['_caption'] = 'Pindahan';
+        $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
-    public function read($id) 
+    public function read($id)
     {
         $row = $this->_30_mutasi_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'idmutasi' => $row->idmutasi,
-		'idalamat' => $row->idalamat,
-		'tanggal' => $row->tanggal,
-		'Jenis' => $row->Jenis,
-		'idkk' => $row->idkk,
-		'idusers' => $row->idusers,
-		'created_at' => $row->created_at,
-		'updated_at' => $row->updated_at,
-	    );
-            $this->load->view('_30_mutasi/t30_mutasi_read', $data);
+        		'idmutasi' => $row->idmutasi,
+        		'idalamat' => $row->idalamat,
+        		'tanggal' => $row->tanggal,
+        		'Jenis' => $row->Jenis,
+        		'idkk' => $row->idkk,
+        		// 'idusers' => $row->idusers,
+        		// 'created_at' => $row->created_at,
+        		// 'updated_at' => $row->updated_at,
+    	    );
+            // $this->load->view('_30_mutasi/t30_mutasi_read', $data);
+            $data['_view'] = '_30_mutasi/t30_mutasi_read';
+            $data['_caption'] = 'Pindahan';
+            $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_30_mutasi'));
         }
     }
 
-    public function create() 
+    public function create()
     {
         $data = array(
             'button' => 'Create',
             'action' => site_url('_30_mutasi/create_action'),
-	    'idmutasi' => set_value('idmutasi'),
-	    'idalamat' => set_value('idalamat'),
-	    'tanggal' => set_value('tanggal'),
-	    'Jenis' => set_value('Jenis'),
-	    'idkk' => set_value('idkk'),
-	    'idusers' => set_value('idusers'),
-	    'created_at' => set_value('created_at'),
-	    'updated_at' => set_value('updated_at'),
-	);
-        $this->load->view('_30_mutasi/t30_mutasi_form', $data);
+    	    'idmutasi' => set_value('idmutasi'),
+    	    'idalamat' => set_value('idalamat'),
+    	    'tanggal' => set_value('tanggal'),
+    	    'Jenis' => set_value('Jenis'),
+    	    'idkk' => set_value('idkk'),
+    	    // 'idusers' => set_value('idusers'),
+    	    // 'created_at' => set_value('created_at'),
+    	    // 'updated_at' => set_value('updated_at'),
+    	);
+        // $this->load->view('_30_mutasi/t30_mutasi_form', $data);
+        $data['_view'] = '_30_mutasi/t30_mutasi_form';
+        $data['_caption'] = 'Pindahan';
+        $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
-    
-    public function create_action() 
+
+    public function create_action()
     {
         $this->_rules();
 
@@ -89,22 +98,23 @@ class _30_mutasi extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'idalamat' => $this->input->post('idalamat',TRUE),
-		'tanggal' => $this->input->post('tanggal',TRUE),
-		'Jenis' => $this->input->post('Jenis',TRUE),
-		'idkk' => $this->input->post('idkk',TRUE),
-		'idusers' => $this->input->post('idusers',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
-	    );
+        		'idalamat' => $this->input->post('idalamat',TRUE),
+        		'tanggal' => $this->input->post('tanggal',TRUE),
+        		'Jenis' => $this->input->post('Jenis',TRUE),
+        		'idkk' => $this->input->post('idkk',TRUE),
+                'idusers' => $this->session->userdata('user_id'),
+        		// 'idusers' => $this->input->post('idusers',TRUE),
+        		// 'created_at' => $this->input->post('created_at',TRUE),
+        		// 'updated_at' => $this->input->post('updated_at',TRUE),
+    	    );
 
             $this->_30_mutasi_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('_30_mutasi'));
         }
     }
-    
-    public function update($id) 
+
+    public function update($id)
     {
         $row = $this->_30_mutasi_model->get_by_id($id);
 
@@ -112,23 +122,26 @@ class _30_mutasi extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('_30_mutasi/update_action'),
-		'idmutasi' => set_value('idmutasi', $row->idmutasi),
-		'idalamat' => set_value('idalamat', $row->idalamat),
-		'tanggal' => set_value('tanggal', $row->tanggal),
-		'Jenis' => set_value('Jenis', $row->Jenis),
-		'idkk' => set_value('idkk', $row->idkk),
-		'idusers' => set_value('idusers', $row->idusers),
-		'created_at' => set_value('created_at', $row->created_at),
-		'updated_at' => set_value('updated_at', $row->updated_at),
-	    );
-            $this->load->view('_30_mutasi/t30_mutasi_form', $data);
+        		'idmutasi' => set_value('idmutasi', $row->idmutasi),
+        		'idalamat' => set_value('idalamat', $row->idalamat),
+        		'tanggal' => set_value('tanggal', $row->tanggal),
+        		'Jenis' => set_value('Jenis', $row->Jenis),
+        		'idkk' => set_value('idkk', $row->idkk),
+        		// 'idusers' => set_value('idusers', $row->idusers),
+        		// 'created_at' => set_value('created_at', $row->created_at),
+        		// 'updated_at' => set_value('updated_at', $row->updated_at),
+    	    );
+            // $this->load->view('_30_mutasi/t30_mutasi_form', $data);
+            $data['_view'] = '_30_mutasi/t30_mutasi_form';
+            $data['_caption'] = 'Pindahan';
+            $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_30_mutasi'));
         }
     }
-    
-    public function update_action() 
+
+    public function update_action()
     {
         $this->_rules();
 
@@ -136,22 +149,23 @@ class _30_mutasi extends CI_Controller
             $this->update($this->input->post('idmutasi', TRUE));
         } else {
             $data = array(
-		'idalamat' => $this->input->post('idalamat',TRUE),
-		'tanggal' => $this->input->post('tanggal',TRUE),
-		'Jenis' => $this->input->post('Jenis',TRUE),
-		'idkk' => $this->input->post('idkk',TRUE),
-		'idusers' => $this->input->post('idusers',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
-	    );
+        		'idalamat' => $this->input->post('idalamat',TRUE),
+        		'tanggal' => $this->input->post('tanggal',TRUE),
+        		'Jenis' => $this->input->post('Jenis',TRUE),
+        		'idkk' => $this->input->post('idkk',TRUE),
+                'idusers' => $this->session->userdata('user_id'),
+        		// 'idusers' => $this->input->post('idusers',TRUE),
+        		// 'created_at' => $this->input->post('created_at',TRUE),
+        		// 'updated_at' => $this->input->post('updated_at',TRUE),
+    	    );
 
             $this->_30_mutasi_model->update($this->input->post('idmutasi', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('_30_mutasi'));
         }
     }
-    
-    public function delete($id) 
+
+    public function delete($id)
     {
         $row = $this->_30_mutasi_model->get_by_id($id);
 
@@ -165,18 +179,18 @@ class _30_mutasi extends CI_Controller
         }
     }
 
-    public function _rules() 
+    public function _rules()
     {
-	$this->form_validation->set_rules('idalamat', 'idalamat', 'trim|required');
-	$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
-	$this->form_validation->set_rules('Jenis', 'jenis', 'trim|required');
-	$this->form_validation->set_rules('idkk', 'idkk', 'trim|required');
-	$this->form_validation->set_rules('idusers', 'idusers', 'trim|required');
-	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
+    	$this->form_validation->set_rules('idalamat', 'idalamat', 'trim|required');
+    	$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
+    	$this->form_validation->set_rules('Jenis', 'jenis', 'trim|required');
+    	$this->form_validation->set_rules('idkk', 'idkk', 'trim|required');
+    	// $this->form_validation->set_rules('idusers', 'idusers', 'trim|required');
+    	// $this->form_validation->set_rules('created_at', 'created at', 'trim|required');
+    	// $this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
 
-	$this->form_validation->set_rules('idmutasi', 'idmutasi', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('idmutasi', 'idmutasi', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -201,28 +215,28 @@ class _30_mutasi extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Idalamat");
-	xlsWriteLabel($tablehead, $kolomhead++, "Tanggal");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jenis");
-	xlsWriteLabel($tablehead, $kolomhead++, "Idkk");
-	xlsWriteLabel($tablehead, $kolomhead++, "Idusers");
-	xlsWriteLabel($tablehead, $kolomhead++, "Created At");
-	xlsWriteLabel($tablehead, $kolomhead++, "Updated At");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Idalamat");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Tanggal");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Jenis");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Idkk");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Idusers");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Created At");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Updated At");
 
-	foreach ($this->_30_mutasi_model->get_all() as $data) {
+    	foreach ($this->_30_mutasi_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->idalamat);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->tanggal);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->Jenis);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->idkk);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->idusers);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->created_at);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->updated_at);
+    	    xlsWriteNumber($tablebody, $kolombody++, $data->idalamat);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->tanggal);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->Jenis);
+    	    xlsWriteNumber($tablebody, $kolombody++, $data->idkk);
+    	    xlsWriteNumber($tablebody, $kolombody++, $data->idusers);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->created_at);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->updated_at);
 
-	    $tablebody++;
+    	    $tablebody++;
             $nourut++;
         }
 
@@ -239,7 +253,7 @@ class _30_mutasi extends CI_Controller
             't30_mutasi_data' => $this->_30_mutasi_model->get_all(),
             'start' => 0
         );
-        
+
         $this->load->view('_30_mutasi/t30_mutasi_doc',$data);
     }
 
