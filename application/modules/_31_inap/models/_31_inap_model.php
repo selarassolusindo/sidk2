@@ -89,6 +89,18 @@ class _31_inap_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    function getLaporanData()
+    {
+        $this->db->order_by('MulaiTanggal asc');
+        $this->db->select($this->table.'.*');
+        $this->db->select('t35_alamat.Alamat as AlamatNama');
+        $this->db->select('t08_tamu.Nama as TamuNama');
+        $this->db->from($this->table);
+        $this->db->join('t35_alamat', 't35_alamat.idalamat = '.$this->table.'.Alamat');
+        $this->db->join('t08_tamu', 't08_tamu.idtamu = '.$this->table.'.Tamu');
+        return $this->db->get()->result();
+    }
+
 }
 
 /* End of file _31_inap_model.php */

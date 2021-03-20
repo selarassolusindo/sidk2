@@ -277,6 +277,17 @@ class _31_inap extends CI_Controller
         $this->load->view('_31_inap/t31_inap_doc',$data);
     }
 
+    public function laporan()
+    {
+        $dataTamu = $this->_31_inap_model->getLaporanData();
+        $data = array(
+            'dataTamu' => $dataTamu,
+        );
+        $data['_view'] = '_31_inap/t31_inap_laporan';
+        $data['_caption'] = 'Laporan Data Tamu';
+        $this->load->view('_00_dashboard/_00_dashboard_view', $data);
+    }
+
 }
 
 /* End of file _31_inap.php */

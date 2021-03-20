@@ -493,7 +493,7 @@
                                     </li>
                                     <!-- tamu menginap -->
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_31_inap" class="nav-link <?php echo $this->uri->segment(1) == '_31_inap' ? 'active' : ''; ?>">
+                                        <a href="<?php echo site_url(); ?>_31_inap" class="nav-link <?php echo ($this->uri->segment(1) == '_31_inap' and $this->uri->segment(2) == '') ? 'active' : ''; ?>">
                                             <i class="fas fa-bed nav-icon"></i>
                                             <p>
                                             MENGINAP
@@ -502,7 +502,7 @@
                                     </li>
                                     <!-- laporan -->
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_32_inap/laporan" class="nav-link <?php echo ($this->uri->segment(1) == '_32_inap' and $this->uri->segment(2) == 'laporan') ? 'active' : ''; ?>">
+                                        <a href="<?php echo site_url(); ?>_31_inap/laporan" class="nav-link <?php echo ($this->uri->segment(1) == '_31_inap' and $this->uri->segment(2) == 'laporan') ? 'active' : ''; ?>">
                                             <i class="fas fa-book nav-icon"></i>
                                             <p>
                                             LAPORAN

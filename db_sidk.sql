@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 20, 2021 at 08:49 PM
+-- Generation Time: Mar 21, 2021 at 12:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -203,10 +203,37 @@ CREATE TABLE `t30_mutasi` (
 --
 
 INSERT INTO `t30_mutasi` (`idmutasi`, `idalamat`, `tanggal`, `Jenis`, `idkk`, `idusers`, `created_at`, `updated_at`) VALUES
-(1, 1, '2020-03-20', 'MASUK', 2, 1, '2021-03-20 03:55:57', '2021-03-20 13:42:41'),
-(2, 2, '2021-03-20', 'KELUAR', 2, 1, '2021-03-20 04:17:50', '2021-03-20 04:17:50'),
-(3, 1, '2020-03-20', 'MASUK', 1, 1, '2021-03-20 07:20:35', '2021-03-20 13:41:35'),
-(4, 3, '2021-03-20', 'MASUK', 3, 1, '2021-03-20 07:49:44', '2021-03-20 07:49:44');
+(1, 1, '2021-03-20', 'MASUK', 2, 1, '2021-03-20 03:55:57', '2021-03-20 16:13:48'),
+(2, 2, '2021-03-20', 'MASUK', 2, 1, '2021-03-20 04:17:50', '2021-03-20 16:14:28'),
+(3, 1, '2021-03-20', 'MASUK', 1, 1, '2021-03-20 07:20:35', '2021-03-20 16:14:05'),
+(4, 3, '2021-03-20', 'MASUK', 3, 1, '2021-03-20 07:49:44', '2021-03-20 07:49:44'),
+(9, 1, '2021-03-20', 'KELUAR', 1, 1, '2021-03-20 15:35:26', '2021-03-20 15:35:26'),
+(10, 1, '2021-03-20', 'KELUAR', 2, 1, '2021-03-20 16:15:33', '2021-03-20 16:15:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t31_inap`
+--
+
+CREATE TABLE `t31_inap` (
+  `idinap` int(11) NOT NULL,
+  `Tamu` int(11) NOT NULL,
+  `Alamat` int(11) NOT NULL,
+  `MulaiTanggal` date NOT NULL,
+  `SampaiTanggal` date NOT NULL,
+  `Keperluan` text NOT NULL,
+  `idusers` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t31_inap`
+--
+
+INSERT INTO `t31_inap` (`idinap`, `Tamu`, `Alamat`, `MulaiTanggal`, `SampaiTanggal`, `Keperluan`, `idusers`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2021-03-21', '2021-03-22', '-', 1, '2021-03-20 17:03:29', '2021-03-20 17:30:39');
 
 -- --------------------------------------------------------
 
@@ -87707,6 +87734,12 @@ ALTER TABLE `t30_mutasi`
   ADD PRIMARY KEY (`idmutasi`);
 
 --
+-- Indexes for table `t31_inap`
+--
+ALTER TABLE `t31_inap`
+  ADD PRIMARY KEY (`idinap`);
+
+--
 -- Indexes for table `t35_alamat`
 --
 ALTER TABLE `t35_alamat`
@@ -87841,7 +87874,13 @@ ALTER TABLE `t30_masuk`
 -- AUTO_INCREMENT for table `t30_mutasi`
 --
 ALTER TABLE `t30_mutasi`
-  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `t31_inap`
+--
+ALTER TABLE `t31_inap`
+  MODIFY `idinap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `t35_alamat`
