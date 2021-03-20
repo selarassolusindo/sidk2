@@ -17,7 +17,7 @@
                 <th>No</th>
         		<th>Alamat</th>
                 <th>Tanggal</th>
-        		<th>Status</th>
+        		<!-- <th>Status</th> -->
         		<th>Nomor KK</th>
         		<th>Kepala Keluarga</th>
             </tr>
@@ -33,11 +33,11 @@
             ?>
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
-    			<td><?php echo $d->idalamat ?></td>
+    			<td><?php echo $d->Alamat ?></td>
                 <td><?php echo $d->tanggal ?></td>
-    			<td><?php echo $d->Jenis ?></td>
-    			<td><?php echo $d->idkk ?></td>
-                <td><?php echo $d->idkk ?></td>
+    			<!-- <td><?php echo $d->Jenis ?></td> -->
+    			<td><?php echo $d->Nomor ?></td>
+                <td><?php echo $d->pendudukNama ?></td>
     		</tr>
             <?php
             }
@@ -58,11 +58,11 @@
             ?>
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
-    			<td><?php echo $d->idalamat ?></td>
+    			<td><?php echo $d->Alamat ?></td>
                 <td><?php echo $d->tanggal ?></td>
-    			<td><?php echo $d->Jenis ?></td>
-    			<td><?php echo $d->idkk ?></td>
-                <td><?php echo $d->idkk ?></td>
+    			<!-- <td><?php echo $d->Jenis ?></td> -->
+    			<td><?php echo $d->Nomor ?></td>
+                <td><?php echo $d->pendudukNama ?></td>
     		</tr>
             <?php
             }
@@ -79,15 +79,15 @@
             </tr>
             <?php
             $start = 0;
-            foreach ($mutasiKeluar as $d) {
+            foreach ($mutasiSaatini as $d) {
             ?>
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
-    			<td><?php echo $d->idalamat ?></td>
+    			<td><?php echo $d->Alamat ?></td>
                 <td><?php echo $d->tanggal ?></td>
-    			<td><?php echo $d->Jenis ?></td>
-    			<td><?php echo $d->idkk ?></td>
-                <td><?php echo $d->idkk ?></td>
+    			<!-- <td><?php echo $d->Jenis ?></td> -->
+    			<td><?php echo $d->Nomor ?></td>
+                <td><?php echo $d->pendudukNama ?></td>
     		</tr>
             <?php
             }

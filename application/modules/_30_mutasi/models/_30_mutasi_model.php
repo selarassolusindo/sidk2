@@ -140,9 +140,53 @@ class _30_mutasi_model extends CI_Model
 
     function getLaporanData($Jenis)
     {
-        $this->db->where('Jenis', $Jenis);
-        $this->db->order_by('idalamat asc, tanggal asc');
-        return $this->db->get($this->table)->result();
+        if ($Jenis == 'SAATINI') {
+            $q =
+                "
+                select
+                    a.idalamat
+                    , a.Alamat
+                    , b.tanggal
+                    , 'MENEMPATI' as Jenis
+                    , b.Nomor
+                    , b.Nama as pendudukNama
+                from
+                    t35_alamat a
+                    join
+                        (
+                        select
+                            idmutasi
+                            , idalamat
+                            , a.tanggal
+                            , Jenis
+                            , a.idkk
+                            , b.Nomor
+                            , c.Nama
+                        from
+                            t30_mutasi a
+                            join t07_kk b on a.idkk = b.idkk
+                            join t06_penduduk c on b.Nama = c.idpenduduk
+                        where
+                            Jenis = 'MASUK'
+                            and a.created_at = (select max(created_at) from t30_mutasi group by idalamat having idalamat = a.idalamat)
+                        ) b on a.idalamat = b.idalamat
+                ";
+            // echo $q;
+            return $this->db->query($q)->result();
+        } else {
+            $this->db->where('Jenis', $Jenis);
+            $this->db->order_by($this->table.'.idalamat asc, '.$this->table.'.tanggal asc, '.$this->table.'.created_at asc');
+            $this->db->select($this->table.'.*');
+            $this->db->select('t07_kk.Nomor');
+            $this->db->select('t06_penduduk.Nama as pendudukNama');
+            $this->db->select('t35_alamat.Alamat');
+            $this->db->from($this->table);
+            $this->db->join('t07_kk', 't07_kk.idkk = '.$this->table.'.idkk');
+            $this->db->join('t06_penduduk', 't06_penduduk.idpenduduk = t07_kk.Nama');
+            $this->db->join('t35_alamat', 't35_alamat.idalamat = '.$this->table.'.idalamat');
+            return $this->db->get()->result();
+        }
+
     }
 
 }

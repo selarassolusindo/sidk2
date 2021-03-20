@@ -303,11 +303,11 @@ class _30_mutasi extends CI_Controller
     {
         $mutasiMasuk = $this->_30_mutasi_model->getLaporanData('MASUK');
         $mutasiKeluar = $this->_30_mutasi_model->getLaporanData('KELUAR');
-        // $mutasiSaatini = $this->_30_mutasi_model->getLaporanData('SAATINI');
+        $mutasiSaatini = $this->_30_mutasi_model->getLaporanData('SAATINI');
         $data = array(
             'mutasiMasuk' => $mutasiMasuk,
             'mutasiKeluar' => $mutasiKeluar,
-            // 'mutasiSaatini' => $mutasiSaatini,
+            'mutasiSaatini' => $mutasiSaatini,
         );
         $data['_view'] = '_30_mutasi/t30_mutasi_laporan';
         // $data['_view'] = '_00_dashboard_list';
