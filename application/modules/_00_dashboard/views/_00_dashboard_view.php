@@ -435,31 +435,22 @@
                                     </li>
                                     <!-- mutasi -->
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_30_mutasi" class="nav-link <?php echo $this->uri->segment(1) == '_30_mutasi' ? 'active' : ''; ?>">
+                                        <a href="<?php echo site_url(); ?>_30_mutasi" class="nav-link <?php echo ($this->uri->segment(1) == '_30_mutasi' and $this->uri->segment(2) == '')  ? 'active' : ''; ?>">
                                             <i class="fas fa-exchange-alt nav-icon"></i>
                                             <p>
                                             PINDAHAN
                                             </p>
                                         </a>
                                     </li>
-                                    <!-- pindahan masuk -->
-                                    <!-- <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_30_masuk" class="nav-link <?php echo $this->uri->segment(1) == '_30_masuk' ? 'active' : ''; ?>">
-                                            <i class="fas fa-people-carry nav-icon"></i>
+                                    <!-- laporan -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_30_mutasi/laporan" class="nav-link <?php echo ($this->uri->segment(1) == '_30_mutasi' and $this->uri->segment(2) == 'laporan') ? 'active' : ''; ?>">
+                                            <i class="fas fa-book nav-icon"></i>
                                             <p>
-                                            PINDAHAN MASUK
+                                            LAPORAN
                                             </p>
                                         </a>
-                                    </li> -->
-                                    <!-- pindahan keluar -->
-                                    <!-- <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_31_keluar" class="nav-link <?php echo $this->uri->segment(1) == '_31_keluar' ? 'active' : ''; ?>">
-                                            <i class="fas fa-luggage-cart nav-icon"></i>
-                                            <p>
-                                            PINDAHAN KELUAR
-                                            </p>
-                                        </a>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </li>
 
@@ -513,57 +504,12 @@
                                             </p>
                                         </a>
                                     </li>
-                                </ul>
-                            </li>
-
-                            <!-- laporan -->
-                            <li class="nav-item has-treeview
-                                <?php
-                                $uri = $this->uri->segment(1) . $this->uri->segment(2);
-                                switch ($uri) {
-                                    case '_30_mutasilaporan':
-                                    case '_08_tamulaporan':
-                                        echo 'menu-open';
-                                        break;
-                                    default:
-                                        echo '';
-                                }
-                                ?>
-                            ">
-                                <a href="#" class="nav-link
-                                    <?php
-                                    switch ($uri) {
-                                        case '_30_mutasilaporan':
-                                        case '_08_tamulaporan':
-                                            echo 'active';
-                                            break;
-                                        default:
-                                            echo '';
-                                    }
-                                    ?>
-                                ">
-                                    <i class="fas fa-book nav-icon"></i>
-                                    <p>
-                                    LAPORAN
-                                    <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <!-- tamu -->
+                                    <!-- laporan -->
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_30_mutasi/laporan" class="nav-link <?php echo ($this->uri->segment(1).$this->uri->segment(2) == '_30_mutasilaporan') ? 'active' : ''; ?>">
-                                            <i class="fas fa-users nav-icon"></i>
+                                        <a href="<?php echo site_url(); ?>_32_inap/laporan" class="nav-link <?php echo ($this->uri->segment(1) == '_32_inap' and $this->uri->segment(2) == 'laporan') ? 'active' : ''; ?>">
+                                            <i class="fas fa-book nav-icon"></i>
                                             <p>
-                                            WARGA
-                                            </p>
-                                        </a>
-                                    </li>
-                                    <!-- tamu menginap -->
-                                    <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_32_inap/laporan" class="nav-link <?php echo ($this->uri->segment(1).$this->uri->segment(2) == '_32_inaplaporan') ? 'active' : ''; ?>">
-                                            <i class="fas fa-taxi nav-icon"></i>
-                                            <p>
-                                            TAMU
+                                            LAPORAN
                                             </p>
                                         </a>
                                     </li>

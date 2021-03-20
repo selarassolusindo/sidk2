@@ -301,7 +301,18 @@ class _30_mutasi extends CI_Controller
 
     public function laporan()
     {
-        //$this->index();
+        $mutasiMasuk = $this->_30_mutasi_model->getLaporanData('MASUK');
+        $mutasiKeluar = $this->_30_mutasi_model->getLaporanData('KELUAR');
+        // $mutasiSaatini = $this->_30_mutasi_model->getLaporanData('SAATINI');
+        $data = array(
+            'mutasiMasuk' => $mutasiMasuk,
+            'mutasiKeluar' => $mutasiKeluar,
+            // 'mutasiSaatini' => $mutasiSaatini,
+        );
+        $data['_view'] = '_30_mutasi/t30_mutasi_laporan';
+        // $data['_view'] = '_00_dashboard_list';
+        $data['_caption'] = 'Laporan Data Warga';
+        $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
 }

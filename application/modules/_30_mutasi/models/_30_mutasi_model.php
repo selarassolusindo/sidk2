@@ -138,6 +138,13 @@ class _30_mutasi_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    function getLaporanData($Jenis)
+    {
+        $this->db->where('Jenis', $Jenis);
+        $this->db->order_by('idalamat asc, tanggal asc');
+        return $this->db->get($this->table)->result();
+    }
+
 }
 
 /* End of file _30_mutasi_model.php */
