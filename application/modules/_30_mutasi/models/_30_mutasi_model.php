@@ -28,34 +28,60 @@ class _30_mutasi_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
-    
+
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('idmutasi', $q);
-	$this->db->or_like('idalamat', $q);
-	$this->db->or_like('tanggal', $q);
-	$this->db->or_like('Jenis', $q);
-	$this->db->or_like('idkk', $q);
-	$this->db->or_like('idusers', $q);
-	$this->db->or_like('created_at', $q);
-	$this->db->or_like('updated_at', $q);
-	$this->db->from($this->table);
+    	$this->db->from('t35_alamat');
         return $this->db->count_all_results();
     }
 
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
-        $this->db->order_by($this->id, $this->order);
-        $this->db->like('idmutasi', $q);
-	$this->db->or_like('idalamat', $q);
-	$this->db->or_like('tanggal', $q);
-	$this->db->or_like('Jenis', $q);
-	$this->db->or_like('idkk', $q);
-	$this->db->or_like('idusers', $q);
-	$this->db->or_like('created_at', $q);
-	$this->db->or_like('updated_at', $q);
-	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        // $this->db->order_by($this->id, $this->order);
+        // $this->db->like('idmutasi', $q);
+    	// $this->db->or_like('idalamat', $q);
+    	// $this->db->or_like('tanggal', $q);
+    	// $this->db->or_like('Jenis', $q);
+    	// $this->db->or_like('idkk', $q);
+    	// $this->db->or_like('idusers', $q);
+    	// $this->db->or_like('created_at', $q);
+    	// $this->db->or_like('updated_at', $q);
+        // $this->db->select();
+        $q =
+            "
+            select
+            	a.idalamat
+                , a.Alamat
+                , case when b.Jenis = 'MASUK' then 'Terisi' else 'Kosong' end as Status
+                , b.idmutasi
+                , b.Nomor
+                , b.Nama
+            from
+            	t35_alamat a
+                left join
+            		(
+                    select
+                    	idmutasi
+                        , idalamat
+                        , a.tanggal
+                        , Jenis
+                        , a.idkk
+                        , b.Nomor
+                        , c.Nama
+                    from
+                    	t30_mutasi a
+                        join t07_kk b on a.idkk = b.idkk
+                        join t06_penduduk c on b.Nama = c.idpenduduk
+                    where
+                    	Jenis = 'MASUK'
+                        and a.created_at = (select max(created_at) from t30_mutasi group by idalamat having idalamat = a.idalamat)
+                    ) b on a.idalamat = b.idalamat
+            limit ".$limit." offset ".$start."
+            ";
+    	// $this->db->limit($limit, $start);
+        // echo $q;
+        return $this->db->query($q)->result();
+        // return $this->db->get($this->table)->result();
     }
 
     // insert data

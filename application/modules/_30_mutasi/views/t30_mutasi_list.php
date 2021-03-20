@@ -44,10 +44,10 @@
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-        		<th>Idalamat</th>
-        		<th>Tanggal</th>
-        		<th>Jenis</th>
-        		<th>Idkk</th>
+        		<th>Alamat</th>
+        		<th>Status</th>
+        		<th>Nomor KK</th>
+        		<th>Kepala Keluarga</th>
         		<!-- <th>Idusers</th> -->
         		<!-- <th>Created At</th> -->
         		<!-- <th>Updated At</th> -->
@@ -59,20 +59,20 @@
             ?>
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
-    			<td><?php echo $_30_mutasi->idalamat ?></td>
-    			<td><?php echo $_30_mutasi->tanggal ?></td>
-    			<td><?php echo $_30_mutasi->Jenis ?></td>
-    			<td><?php echo $_30_mutasi->idkk ?></td>
+    			<td><?php echo $_30_mutasi->Alamat ?></td>
+    			<td><?php echo $_30_mutasi->Status ?></td>
+    			<td><?php echo $_30_mutasi->Nomor ?></td>
+    			<td><?php echo $_30_mutasi->Nama ?></td>
     			<!-- <td><?php echo $_30_mutasi->idusers ?></td> -->
     			<!-- <td><?php echo $_30_mutasi->created_at ?></td> -->
     			<!-- <td><?php echo $_30_mutasi->updated_at ?></td> -->
     			<td style="text-align:center" width="200px">
     				<?php
-    				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idmutasi),'Read');
+    				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idalamat),'Read');
     				echo ' | ';
-    				echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idmutasi),'Update');
-    				echo ' | ';
-    				echo anchor(site_url('_30_mutasi/delete/'.$_30_mutasi->idmutasi),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+    				echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idalamat),'Update');
+    				// echo ' | ';
+    				// echo anchor(site_url('_30_mutasi/delete/'.$_30_mutasi->idmutasi),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
     				?>
     			</td>
     		</tr>

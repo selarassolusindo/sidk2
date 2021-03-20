@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2021 at 11:02 AM
+-- Generation Time: Mar 20, 2021 at 04:00 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -91,7 +91,9 @@ CREATE TABLE `t06_penduduk` (
 INSERT INTO `t06_penduduk` (`idpenduduk`, `NoUrut`, `Nama`, `NIK`, `JenisKelamin`, `TempatLahir`, `TanggalLahir`, `Agama`, `Pendidikan`, `Pekerjaan`, `StatusKawin`, `HubunganKeluarga`, `WargaNegara`, `NoPaspor`, `NoKitasKitap`, `NamaAyah`, `NamaIbu`, `idinduk`, `idkk`, `iduser`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Dodo Ananto', '3515112412740001', 'LAKI-LAKI', 154, '1974-12-24', 1, 4, 3, 1, 1, 1, '-', '-', 'Soetijono', 'Sri Prihati', 1, 1, 1, '2021-03-12 02:00:00', '2021-03-17 07:55:13'),
 (2, 2, 'Rini Ambarwati', '3515116808740005', 'PEREMPUAN', 262, '1974-08-28', 1, 3, 2, 1, 3, 1, '-', '-', 'Adi Suwarno', 'Patmiwati', 0, 1, 1, '2021-03-15 11:41:58', '2021-03-17 07:55:13'),
-(3, 3, 'Lia Rahmadanti', '3515110904990003', 'PEREMPUAN', 240, '1999-04-09', 1, 3, 2, 2, 4, 1, '-', '-', 'Dodo Ananto', 'Rini Ambarwati', 0, 1, 1, '2021-03-17 06:34:32', '2021-03-17 07:55:13');
+(3, 3, 'Lia Rahmadanti', '3515110904990003', 'PEREMPUAN', 240, '1999-04-09', 1, 3, 2, 2, 4, 1, '-', '-', 'Dodo Ananto', 'Rini Ambarwati', 0, 1, 1, '2021-03-17 06:34:32', '2021-03-17 07:55:13'),
+(4, 1, 'Farrel Ilham Ryan Rahmansyah', '3515111402040001', 'LAKI-LAKI', 240, '2004-02-14', 1, 3, 3, 2, 4, 1, '-', '-', 'Dodo Ananto', 'Rini Ambarwati', 0, 2, 1, '2021-03-20 04:20:10', '2021-03-20 04:21:47'),
+(5, 1, 'Rido', '3515110212160001', 'LAKI-LAKI', 240, '2016-12-02', 1, 3, 3, 2, 4, 1, '-', '-', 'Dodo Ananto', 'Rini Ambarwati', 0, 3, 1, '2021-03-20 07:47:54', '2021-03-20 07:49:01');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,9 @@ CREATE TABLE `t07_kk` (
 --
 
 INSERT INTO `t07_kk` (`idkk`, `Nomor`, `Nama`, `Alamat`, `RT`, `RW`, `Kelurahan`, `Kecamatan`, `Kabupaten`, `Provinsi`, `KodePos`, `Tanggal`, `idusers`, `created_at`, `updated_at`) VALUES
-(1, '3515112701098275', 1, 'Perumdam TA 130', '26', '7', 43999, 3528, 240, 15, '61262', '2021-03-17', 1, '2021-03-16 05:11:33', '2021-03-17 07:55:13');
+(1, '3515112701098275', 1, 'Perumdam TA 130', '26', '7', 43999, 3528, 240, 15, '61262', '2021-03-17', 1, '2021-03-16 05:11:33', '2021-03-17 07:55:13'),
+(2, '3515112701098276', 4, 'Perumdam TA 131', '26', '7', 43999, 3528, 240, 15, '61262', '2021-03-20', 1, '2021-03-20 04:21:47', '2021-03-20 04:21:47'),
+(3, '3515112701098277', 5, 'Perumdam TA 132', '26', '7', 43999, 3528, 240, 15, '61262', '2021-03-20', 1, '2021-03-20 07:49:01', '2021-03-20 07:49:01');
 
 -- --------------------------------------------------------
 
@@ -193,6 +197,44 @@ CREATE TABLE `t30_mutasi` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t30_mutasi`
+--
+
+INSERT INTO `t30_mutasi` (`idmutasi`, `idalamat`, `tanggal`, `Jenis`, `idkk`, `idusers`, `created_at`, `updated_at`) VALUES
+(1, 1, '2021-03-20', 'MASUK', 1, 1, '2021-03-20 03:55:57', '2021-03-20 03:55:57'),
+(2, 2, '2021-03-20', 'KELUAR', 2, 1, '2021-03-20 04:17:50', '2021-03-20 04:17:50'),
+(3, 1, '2021-03-20', 'MASUK', 2, 1, '2021-03-20 07:20:35', '2021-03-20 07:20:35'),
+(4, 3, '2021-03-20', 'MASUK', 3, 1, '2021-03-20 07:49:44', '2021-03-20 07:49:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t35_alamat`
+--
+
+CREATE TABLE `t35_alamat` (
+  `idalamat` smallint(6) NOT NULL,
+  `Alamat` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t35_alamat`
+--
+
+INSERT INTO `t35_alamat` (`idalamat`, `Alamat`) VALUES
+(1, 'Perumdam TA 130'),
+(2, 'Perumdam TA 131'),
+(3, 'Perumdam TA 132'),
+(4, 'Perumdam TA 133'),
+(5, 'Perumdam TA 134'),
+(6, 'Perumdam TA 135'),
+(7, 'Perumdam TA 136'),
+(8, 'Perumdam TA 137'),
+(9, 'Perumdam TA 138'),
+(10, 'Perumdam TA 139'),
+(11, 'Perumdam TA 140');
 
 -- --------------------------------------------------------
 
@@ -271,7 +313,8 @@ CREATE TABLE `t39_pekerjaan` (
 INSERT INTO `t39_pekerjaan` (`idpekerjaan`, `Pekerjaan`) VALUES
 (1, 'Pegawai Negeri Sipil'),
 (2, 'Swasta'),
-(3, 'Wirausaha');
+(3, 'Wirausaha'),
+(4, 'Belum/Tidak Bekerja');
 
 -- --------------------------------------------------------
 
@@ -297,7 +340,8 @@ INSERT INTO `t40_pendidikan` (`idpendidikan`, `Pendidikan`) VALUES
 (6, 'D3'),
 (7, 'S1'),
 (8, 'S2'),
-(9, 'S3');
+(9, 'S3'),
+(10, 'Tidak/Belum Sekolah');
 
 -- --------------------------------------------------------
 
@@ -87560,7 +87604,7 @@ CREATE TABLE `t46_users` (
 --
 
 INSERT INTO `t46_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1616126183, 1, 'Admin', NULL, NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$p5wK/WIqAeRDHGP81la51ulG4dXblvVvw0UFjKKJRCDfQ2idwbv7y', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1616202225, 1, 'Admin', NULL, NULL, NULL),
 (2, '::1', 'dodo', '$2y$10$DhC9If3ZtQ8WxJEwaoSzX.7H3bQTTyEjtvcfcbQyDxomgTiS5hw7m', 'e@e.e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615481968, 1615733948, 1, 'Dodo', NULL, NULL, NULL),
 (3, '::1', 'adi', '$2y$10$hzjCMjtQt6SNmMf2KFdelepGfN6FW37q39dIXWe6Y3/mpJcLLfY0O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615728601, 1615731303, 1, 'Adi', NULL, NULL, NULL);
 
@@ -87661,6 +87705,12 @@ ALTER TABLE `t30_masuk`
 --
 ALTER TABLE `t30_mutasi`
   ADD PRIMARY KEY (`idmutasi`);
+
+--
+-- Indexes for table `t35_alamat`
+--
+ALTER TABLE `t35_alamat`
+  ADD PRIMARY KEY (`idalamat`);
 
 --
 -- Indexes for table `t36_warganegara`
@@ -87767,13 +87817,13 @@ ALTER TABLE `t05_warga`
 -- AUTO_INCREMENT for table `t06_penduduk`
 --
 ALTER TABLE `t06_penduduk`
-  MODIFY `idpenduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idpenduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `t07_kk`
 --
 ALTER TABLE `t07_kk`
-  MODIFY `idkk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idkk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t08_tamu`
@@ -87791,7 +87841,13 @@ ALTER TABLE `t30_masuk`
 -- AUTO_INCREMENT for table `t30_mutasi`
 --
 ALTER TABLE `t30_mutasi`
-  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `t35_alamat`
+--
+ALTER TABLE `t35_alamat`
+  MODIFY `idalamat` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `t36_warganegara`
@@ -87815,13 +87871,13 @@ ALTER TABLE `t38_status`
 -- AUTO_INCREMENT for table `t39_pekerjaan`
 --
 ALTER TABLE `t39_pekerjaan`
-  MODIFY `idpekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idpekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `t40_pendidikan`
 --
 ALTER TABLE `t40_pendidikan`
-  MODIFY `idpendidikan` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idpendidikan` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `t41_agama`
