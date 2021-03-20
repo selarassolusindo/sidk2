@@ -517,6 +517,58 @@
                             </li>
 
                             <!-- laporan -->
+                            <li class="nav-item has-treeview
+                                <?php
+                                $uri = $this->uri->segment(1) . $this->uri->segment(2);
+                                switch ($uri) {
+                                    case '_30_mutasilaporan':
+                                    case '_08_tamulaporan':
+                                        echo 'menu-open';
+                                        break;
+                                    default:
+                                        echo '';
+                                }
+                                ?>
+                            ">
+                                <a href="#" class="nav-link
+                                    <?php
+                                    switch ($uri) {
+                                        case '_30_mutasilaporan':
+                                        case '_08_tamulaporan':
+                                            echo 'active';
+                                            break;
+                                        default:
+                                            echo '';
+                                    }
+                                    ?>
+                                ">
+                                    <i class="fas fa-book nav-icon"></i>
+                                    <p>
+                                    LAPORAN
+                                    <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <!-- tamu -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_30_mutasi/laporan" class="nav-link <?php echo ($this->uri->segment(1).$this->uri->segment(2) == '_30_mutasilaporan') ? 'active' : ''; ?>">
+                                            <i class="fas fa-users nav-icon"></i>
+                                            <p>
+                                            WARGA
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <!-- tamu menginap -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_32_inap/laporan" class="nav-link <?php echo ($this->uri->segment(1).$this->uri->segment(2) == '_32_inaplaporan') ? 'active' : ''; ?>">
+                                            <i class="fas fa-taxi nav-icon"></i>
+                                            <p>
+                                            TAMU
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <?php } ?>
 
                             <?php if ($this->session->userdata('user_id') != "") { ?>

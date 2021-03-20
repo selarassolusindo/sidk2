@@ -299,6 +299,11 @@ class _30_mutasi extends CI_Controller
         $this->load->view('_30_mutasi/t30_mutasi_doc',$data);
     }
 
+    public function laporan()
+    {
+        //$this->index();
+    }
+
 }
 
 /* End of file _30_mutasi.php */
