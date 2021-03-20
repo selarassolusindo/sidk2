@@ -13,7 +13,7 @@
         <h2 style="margin-top:0px">T30_mutasi List</h2> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <?php echo anchor(site_url('_30_mutasi/create'),'Create', 'class="btn btn-primary"'); ?>
+                <?php //echo anchor(site_url('_30_mutasi/create'),'Create', 'class="btn btn-primary"'); ?>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">
@@ -25,17 +25,17 @@
             <div class="col-md-3 text-right">
                 <form action="<?php echo site_url('_30_mutasi/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                        <!-- <input type="text" class="form-control" name="q" value="<?php echo $q; ?>"> -->
                         <span class="input-group-btn">
                             <?php
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('_30_mutasi'); ?>" class="btn btn-default">Reset</a>
+                                    <!-- <a href="<?php echo site_url('_30_mutasi'); ?>" class="btn btn-default">Reset</a> -->
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
+                          <!-- <button class="btn btn-primary" type="submit">Search</button> -->
                         </span>
                     </div>
                 </form>
@@ -68,9 +68,9 @@
     			<!-- <td><?php echo $_30_mutasi->updated_at ?></td> -->
     			<td style="text-align:center" width="200px">
     				<?php
-    				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idalamat),'Read');
-    				echo ' | ';
-    				echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idalamat),'Update');
+    				echo anchor(site_url('_30_mutasi/read/'.$_30_mutasi->idalamat),'Proses');
+    				// echo ' | ';
+    				// echo anchor(site_url('_30_mutasi/update/'.$_30_mutasi->idalamat),'Update');
     				// echo ' | ';
     				// echo anchor(site_url('_30_mutasi/delete/'.$_30_mutasi->idmutasi),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
     				?>

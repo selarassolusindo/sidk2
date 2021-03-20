@@ -42,7 +42,7 @@ class _30_mutasi extends CI_Controller
         );
         // $this->load->view('_30_mutasi/t30_mutasi_list', $data);
         $data['_view'] = '_30_mutasi/t30_mutasi_list';
-        $data['_caption'] = 'Pindahan';
+        $data['_caption'] = 'Data Alamat';
         $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
@@ -110,13 +110,13 @@ class _30_mutasi extends CI_Controller
         }
     }
 
-    public function create()
+    public function create($id)
     {
         $data = array(
             'button' => 'Create',
             'action' => site_url('_30_mutasi/create_action'),
     	    'idmutasi' => set_value('idmutasi'),
-    	    'idalamat' => set_value('idalamat'),
+    	    'idalamat' => set_value('idalamat', $id),
     	    'tanggal' => set_value('tanggal'),
     	    'Jenis' => set_value('Jenis'),
     	    'idkk' => set_value('idkk'),
@@ -139,7 +139,7 @@ class _30_mutasi extends CI_Controller
         } else {
             $data = array(
         		'idalamat' => $this->input->post('idalamat',TRUE),
-        		'tanggal' => $this->input->post('tanggal',TRUE),
+                'tanggal' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('tanggal',TRUE)))),
         		'Jenis' => $this->input->post('Jenis',TRUE),
         		'idkk' => $this->input->post('idkk',TRUE),
                 'idusers' => $this->session->userdata('user_id'),
@@ -150,13 +150,13 @@ class _30_mutasi extends CI_Controller
 
             $this->_30_mutasi_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('_30_mutasi'));
+            redirect(site_url('_30_mutasi/read/'.$this->input->post('idalamat',TRUE)));
         }
     }
 
     public function update($id)
     {
-        $row = $this->_30_mutasi_model->get_by_id($id);
+        $row = $this->_30_mutasi_model->get_by_id_update($id);
 
         if ($row) {
             $data = array(
@@ -167,6 +167,8 @@ class _30_mutasi extends CI_Controller
         		'tanggal' => set_value('tanggal', $row->tanggal),
         		'Jenis' => set_value('Jenis', $row->Jenis),
         		'idkk' => set_value('idkk', $row->idkk),
+                'Nomor' => set_value('Nomor', $row->Nomor),
+                'pendudukNama' => set_value('pendudukNama', $row->pendudukNama),
         		// 'idusers' => set_value('idusers', $row->idusers),
         		// 'created_at' => set_value('created_at', $row->created_at),
         		// 'updated_at' => set_value('updated_at', $row->updated_at),
@@ -190,7 +192,7 @@ class _30_mutasi extends CI_Controller
         } else {
             $data = array(
         		'idalamat' => $this->input->post('idalamat',TRUE),
-        		'tanggal' => $this->input->post('tanggal',TRUE),
+                'tanggal' => date('Y-m-d', strtotime(str_replace('/', '-', $this->input->post('tanggal',TRUE)))),
         		'Jenis' => $this->input->post('Jenis',TRUE),
         		'idkk' => $this->input->post('idkk',TRUE),
                 'idusers' => $this->session->userdata('user_id'),
@@ -201,21 +203,21 @@ class _30_mutasi extends CI_Controller
 
             $this->_30_mutasi_model->update($this->input->post('idmutasi', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('_30_mutasi'));
+            redirect(site_url('_30_mutasi/read/'.$this->input->post('idalamat',TRUE)));
         }
     }
 
-    public function delete($id)
+    public function delete($id, $idalamat)
     {
-        $row = $this->_30_mutasi_model->get_by_id($id);
+        $row = $this->_30_mutasi_model->get_by_id_update($id);
 
         if ($row) {
             $this->_30_mutasi_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('_30_mutasi'));
+            redirect(site_url('_30_mutasi/read/'.$idalamat));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('_30_mutasi'));
+            redirect(site_url('_30_mutasi/read/'.$idalamat));
         }
     }
 

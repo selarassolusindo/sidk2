@@ -425,6 +425,23 @@ class _07_kk extends CI_Controller
         $this->load->view('_07_kk/t07_kk_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_07_kk_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->idkk;
+                $list[$key]['text'] = $row->Nomor . ' - ' . $row->pendudukNama;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _07_kk.php */

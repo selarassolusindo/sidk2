@@ -119,6 +119,30 @@ class _07_kk_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    // untuk modul pindahan
+    function getData($q)
+    {
+        $q = "
+            select
+                a.idkk
+                , a.Nomor
+                , b.Nama as pendudukNama
+            from
+                t07_kk a
+                join t06_penduduk b on a.Nama = b.idpenduduk
+            where
+                a.Nomor like '%".$q."%'
+                or b.Nama like '%".$q."%'
+        ";
+    	// $this->db->like('Nomor', $q);
+        // $this->db->or_like('t06_penduduk.Nama', $q);
+        // $this->db->select($this->table.'.*');
+        // $this->db->from($this->table);
+        // $this->db->join('t06_penduduk', 't06_penduduk.idpenduduk = ' . $this->table.'.Nama');
+        // return $this->db->get($this->table)->result();
+        return $this->db->query($q)->result();
+    }
+
 }
 
 /* End of file _07_kk_model.php */

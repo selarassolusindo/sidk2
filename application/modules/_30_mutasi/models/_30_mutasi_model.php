@@ -22,6 +22,20 @@ class _30_mutasi_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    // get data by id for update mutasi
+    function get_by_id_update($id)
+    {
+        $this->db->where($this->id, $id);
+        $this->db->select($this->table.'.*');
+        $this->db->select('t07_kk.Nomor');
+        $this->db->select('t06_penduduk.Nama as pendudukNama');
+        $this->db->from($this->table);
+        $this->db->join('t07_kk', 't07_kk.idkk = '.$this->table.'.idkk');
+        $this->db->join('t06_penduduk', 't06_penduduk.idpenduduk = t07_kk.Nama');
+        // return $this->db->get($this->table)->row();
+        return $this->db->get()->row();
+    }
+
     // get data by id
     function get_by_id($id)
     {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 20, 2021 at 04:00 PM
+-- Generation Time: Mar 20, 2021 at 08:49 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -203,9 +203,9 @@ CREATE TABLE `t30_mutasi` (
 --
 
 INSERT INTO `t30_mutasi` (`idmutasi`, `idalamat`, `tanggal`, `Jenis`, `idkk`, `idusers`, `created_at`, `updated_at`) VALUES
-(1, 1, '2021-03-20', 'MASUK', 1, 1, '2021-03-20 03:55:57', '2021-03-20 03:55:57'),
+(1, 1, '2020-03-20', 'MASUK', 2, 1, '2021-03-20 03:55:57', '2021-03-20 13:42:41'),
 (2, 2, '2021-03-20', 'KELUAR', 2, 1, '2021-03-20 04:17:50', '2021-03-20 04:17:50'),
-(3, 1, '2021-03-20', 'MASUK', 2, 1, '2021-03-20 07:20:35', '2021-03-20 07:20:35'),
+(3, 1, '2020-03-20', 'MASUK', 1, 1, '2021-03-20 07:20:35', '2021-03-20 13:41:35'),
 (4, 3, '2021-03-20', 'MASUK', 3, 1, '2021-03-20 07:49:44', '2021-03-20 07:49:44');
 
 -- --------------------------------------------------------
@@ -87841,7 +87841,7 @@ ALTER TABLE `t30_masuk`
 -- AUTO_INCREMENT for table `t30_mutasi`
 --
 ALTER TABLE `t30_mutasi`
-  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idmutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `t35_alamat`
