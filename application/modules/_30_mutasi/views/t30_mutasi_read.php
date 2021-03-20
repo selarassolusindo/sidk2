@@ -11,15 +11,25 @@
     </head>
     <body>
         <h2 style="margin-top:0px">T30_mutasi Read</h2> -->
-    <table class="table">
-	    <tr><td>Idalamat</td><td><?php echo $idalamat; ?></td></tr>
-	    <tr><td>Tanggal</td><td><?php echo $tanggal; ?></td></tr>
-	    <tr><td>Jenis</td><td><?php echo $Jenis; ?></td></tr>
-	    <tr><td>Idkk</td><td><?php echo $idkk; ?></td></tr>
-	    <!-- <tr><td>Idusers</td><td><?php echo $idusers; ?></td></tr> -->
-	    <!-- <tr><td>Created At</td><td><?php echo $created_at; ?></td></tr> -->
-	    <!-- <tr><td>Updated At</td><td><?php echo $updated_at; ?></td></tr> -->
-	    <tr><td></td><td><a href="<?php echo site_url('_30_mutasi') ?>" class="btn btn-default">Cancel</a></td></tr>
-	</table>
+    <div class="row">
+        <div class="col-2">Alamat</div><div class="col"><?php echo $Alamat; ?></div>
+    </div>
+    <div class="row"><div class="col">&nbsp;</div></div>
+    <div class="row">
+        <div class="text-center border col-1"><b>Tanggal</b></div>
+        <div class="text-center border col-1"><b>Jenis</b></div>
+        <div class="text-center border col-2"><b>Nomor KK</b></div>
+        <div class="text-center border col-3"><b>Nama</b></div>
+    </div>
+    <?php foreach ($detail as $key => $d) { ?>
+        <div class="row">
+            <div class="border col-1"><?php echo date_format(date_create($d->tanggal), 'd-m-Y') ?></div>
+            <div class="border col-1"><?php echo $d->Jenis ?></div>
+            <div class="border col-2"><?php echo $d->Nomor ?></div>
+            <div class="border col-3"><?php echo $d->Nama ?></div>
+        </div>
+    <?php } ?>
+    <div class="row"><div class="col">&nbsp;</div></div>
+    <div class="row"><div class="col"><a href="<?php echo site_url('_30_mutasi') ?>" class="btn btn-default">Cancel</a></div></div>
         <!-- </body>
 </html> -->

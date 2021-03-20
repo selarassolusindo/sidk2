@@ -51,15 +51,55 @@ class _30_mutasi extends CI_Controller
         $row = $this->_30_mutasi_model->get_by_id($id);
         if ($row) {
             $data = array(
-        		'idmutasi' => $row->idmutasi,
-        		'idalamat' => $row->idalamat,
-        		'tanggal' => $row->tanggal,
-        		'Jenis' => $row->Jenis,
-        		'idkk' => $row->idkk,
+                'idalamat' => $row->idalamat,
+                'Alamat' => $row->Alamat,
+        		// 'idmutasi' => $row->idmutasi,
+        		// 'tanggal' => $row->tanggal,
+        		// 'Jenis' => $row->Jenis,
+                // 'Nomor' => $row->Nomor,
+                // 'Nama' => $row->Nama,
+        		// 'idkk' => $row->idkk,
         		// 'idusers' => $row->idusers,
         		// 'created_at' => $row->created_at,
         		// 'updated_at' => $row->updated_at,
     	    );
+
+            /**
+             * ambil data dari tabel detail
+             */
+            $q =
+                "
+                select
+                    a.*
+                    , b.idmutasi
+                    , b.tanggal
+                    , b.Jenis
+                    , c.Nomor
+                    , d.Nama
+                from
+                    t35_alamat a
+                    join t30_mutasi b on a.idalamat = b.idalamat
+                    join t07_kk c on b.idkk = c.idkk
+                    join t06_penduduk d on c.Nama = d.idpenduduk
+                where
+                    a.idalamat = 1
+                order by
+                    b.created_at
+                ";
+            // $data['detail'] = $this->db->query($q)->result();
+            $data['detail'] = $this->db
+                ->where('a.idalamat', $id)
+                ->select('a.*')
+                ->select('b.idmutasi, b.tanggal, b.Jenis')
+                ->select('c.Nomor')
+                ->select('d.Nama')
+                ->from('t35_alamat a')
+                ->join('t30_mutasi b', 'a.idalamat = b.idalamat')
+                ->join('t07_kk c', 'b.idkk = c.idkk')
+                ->join('t06_penduduk d', 'c.Nama = d.idpenduduk')
+                ->order_by('b.created_at', 'asc')
+                ->get()->result();
+
             // $this->load->view('_30_mutasi/t30_mutasi_read', $data);
             $data['_view'] = '_30_mutasi/t30_mutasi_read';
             $data['_caption'] = 'Pindahan';
