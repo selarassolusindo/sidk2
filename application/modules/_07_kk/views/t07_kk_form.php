@@ -74,7 +74,7 @@
 
         <!-- detail penduduk -->
         <div class="form-group">
-            <label for="double">Penduduk</label>
+            <label for="double">Warga</label>
             <!-- <p><a href="#" onclick="tambah()" class="btn btn-primary mb-2">Tambah Penduduk</a></p> -->
             <div id="tmp">
             <?php if ($this->uri->segment(2) == 'update') { ?>
@@ -110,7 +110,7 @@
       		    </div>
             <?php } ?>
             </div>
-            <p><a href="#" onclick="tambah()" class="btn btn-primary mb-2">Tambah Penduduk</a></p>
+            <p><a href="#" onclick="tambah()" class="btn btn-primary mb-2">Tambah Warga</a></p>
 
         </div>
 

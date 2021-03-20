@@ -42,7 +42,7 @@ class _06_penduduk extends CI_Controller
         );
         // $this->load->view('_06_penduduk/t06_penduduk_list', $data);
         $data['_view'] = '_06_penduduk/t06_penduduk_list';
-        $data['_caption'] = 'Penduduk';
+        $data['_caption'] = 'Warga';
         $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
@@ -83,7 +83,7 @@ class _06_penduduk extends CI_Controller
                 );
             // $this->load->view('_06_penduduk/t06_penduduk_read', $data);
             $data['_view'] = '_06_penduduk/t06_penduduk_read';
-            $data['_caption'] = 'Penduduk';
+            $data['_caption'] = 'Warga';
             $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -141,7 +141,7 @@ class _06_penduduk extends CI_Controller
             );
         // $this->load->view('_06_penduduk/t06_penduduk_form', $data);
         $data['_view'] = '_06_penduduk/t06_penduduk_form';
-        $data['_caption'] = 'Penduduk';
+        $data['_caption'] = 'Warga';
         $this->load->view('_00_dashboard/_00_dashboard_view', $data);
     }
 
@@ -239,7 +239,7 @@ class _06_penduduk extends CI_Controller
         	    );
             // $this->load->view('_06_penduduk/t06_penduduk_form', $data);
             $data['_view'] = '_06_penduduk/t06_penduduk_form';
-            $data['_caption'] = 'Penduduk';
+            $data['_caption'] = 'Warga';
             $this->load->view('_00_dashboard/_00_dashboard_view', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

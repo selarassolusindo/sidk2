@@ -200,6 +200,7 @@
                                 <?php
                                 switch ($this->uri->segment(1)) {
                                     case 'auth':
+                                    case '_35_alamat':
                                     case '_36_warganegara':
                                     case '_37_hubungan':
                                     case '_38_status':
@@ -221,6 +222,7 @@
                                     <?php
                                     switch ($this->uri->segment(1)) {
                                         case 'auth':
+                                        case '_35_alamat':
                                         case '_36_warganegara':
                                         case '_37_hubungan':
                                         case '_38_status':
@@ -245,6 +247,13 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
+                                    <!-- alamat -->
+                                    <li class="nav-item">
+                                        <a href="<?php echo site_url(); ?>_35_alamat" class="nav-link <?php echo $this->uri->segment(1) == '_35_alamat' ? 'active' : ''; ?>">
+                                            <i class="fas fa-home nav-icon"></i>
+                                            <p>Alamat</p>
+                                        </a>
+                                    </li>
                                     <!-- agama -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_41_agama" class="nav-link <?php echo $this->uri->segment(1) == '_41_agama' ? 'active' : ''; ?>">
@@ -411,7 +420,7 @@
                                         <a href="<?php echo site_url(); ?>_06_penduduk" class="nav-link <?php echo $this->uri->segment(1) == '_06_penduduk' ? 'active' : ''; ?>">
                                             <i class="far fa-address-book nav-icon"></i>
                                             <p>
-                                            DATA PENDUDUK
+                                            DATA WARGA
                                             </p>
                                         </a>
                                     </li>
