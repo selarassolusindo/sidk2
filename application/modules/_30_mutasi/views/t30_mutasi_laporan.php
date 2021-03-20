@@ -34,7 +34,7 @@
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
     			<td><?php echo $d->Alamat ?></td>
-                <td><?php echo $d->tanggal ?></td>
+                <td><?php echo date_format(date_create($d->tanggal), 'd-m-Y') ?></td>
     			<!-- <td><?php echo $d->Jenis ?></td> -->
     			<td><?php echo $d->Nomor ?></td>
                 <td><?php echo $d->pendudukNama ?></td>
@@ -59,7 +59,7 @@
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
     			<td><?php echo $d->Alamat ?></td>
-                <td><?php echo $d->tanggal ?></td>
+                <td><?php echo date_format(date_create($d->tanggal), 'd-m-Y') ?></td>
     			<!-- <td><?php echo $d->Jenis ?></td> -->
     			<td><?php echo $d->Nomor ?></td>
                 <td><?php echo $d->pendudukNama ?></td>
@@ -84,7 +84,7 @@
             <tr>
     			<td width="80px"><?php echo ++$start ?></td>
     			<td><?php echo $d->Alamat ?></td>
-                <td><?php echo $d->tanggal ?></td>
+                <td><?php echo date_format(date_create($d->tanggal), 'd-m-Y') ?></td>
     			<!-- <td><?php echo $d->Jenis ?></td> -->
     			<td><?php echo $d->Nomor ?></td>
                 <td><?php echo $d->pendudukNama ?></td>

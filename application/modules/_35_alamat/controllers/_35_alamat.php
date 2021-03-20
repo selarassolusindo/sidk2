@@ -207,6 +207,23 @@ class _35_alamat extends CI_Controller
         $this->load->view('_35_alamat/t35_alamat_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_35_alamat_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->idalamat;
+                $list[$key]['text'] = $row->Alamat;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _35_alamat.php */

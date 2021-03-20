@@ -164,7 +164,7 @@ class _30_mutasi extends CI_Controller
                 'action' => site_url('_30_mutasi/update_action'),
         		'idmutasi' => set_value('idmutasi', $row->idmutasi),
         		'idalamat' => set_value('idalamat', $row->idalamat),
-        		'tanggal' => set_value('tanggal', $row->tanggal),
+                'tanggal' => set_value('tanggal', date_format(date_create($row->tanggal), 'd-m-Y')),
         		'Jenis' => set_value('Jenis', $row->Jenis),
         		'idkk' => set_value('idkk', $row->idkk),
                 'Nomor' => set_value('Nomor', $row->Nomor),

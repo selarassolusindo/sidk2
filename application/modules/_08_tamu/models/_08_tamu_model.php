@@ -133,6 +133,14 @@ class _08_tamu_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    // untuk tamu menginap
+    function getData($q)
+    {
+    	$this->db->like('Nama', $q);
+        $this->db->or_like('NIK', $q);
+        return $this->db->get($this->table)->result();
+    }
+
 }
 
 /* End of file _08_tamu_model.php */

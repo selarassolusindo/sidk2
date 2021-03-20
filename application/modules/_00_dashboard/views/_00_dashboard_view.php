@@ -383,8 +383,6 @@
                                 switch ($this->uri->segment(1)) {
                                     case '_06_penduduk':
                                     case '_07_kk':
-                                    case '_30_masuk':
-                                    case '_31_keluar':
                                     case '_30_mutasi':
                                         echo 'menu-open';
                                         break;
@@ -398,8 +396,6 @@
                                     switch ($this->uri->segment(1)) {
                                         case '_06_penduduk':
                                         case '_07_kk':
-                                        case '_30_masuk':
-                                        case '_31_keluar':
                                         case '_30_mutasi':
                                             echo 'active';
                                             break;
@@ -436,7 +432,7 @@
                                     <!-- mutasi -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_30_mutasi" class="nav-link <?php echo ($this->uri->segment(1) == '_30_mutasi' and $this->uri->segment(2) == '')  ? 'active' : ''; ?>">
-                                            <i class="fas fa-exchange-alt nav-icon"></i>
+                                            <i class="fas fa-people-carry nav-icon"></i>
                                             <p>
                                             PINDAHAN
                                             </p>
@@ -459,7 +455,7 @@
                                 <?php
                                 switch ($this->uri->segment(1)) {
                                     case '_08_tamu':
-                                    case '_32_inap':
+                                    case '_31_inap':
                                         echo 'menu-open';
                                         break;
                                     default:
@@ -471,7 +467,7 @@
                                     <?php
                                     switch ($this->uri->segment(1)) {
                                         case '_08_tamu':
-                                        case '_32_inap':
+                                        case '_31_inap':
                                             echo 'active';
                                             break;
                                         default:
@@ -489,7 +485,7 @@
                                     <!-- tamu -->
                                     <li class="nav-item">
                                         <a href="<?php echo site_url(); ?>_08_tamu" class="nav-link <?php echo $this->uri->segment(1) == '_08_tamu' ? 'active' : ''; ?>">
-                                            <i class="fas fa-id-card-alt nav-icon"></i>
+                                            <i class="fas fa-id-badge nav-icon"></i>
                                             <p>
                                             DATA TAMU
                                             </p>
@@ -497,10 +493,10 @@
                                     </li>
                                     <!-- tamu menginap -->
                                     <li class="nav-item">
-                                        <a href="<?php echo site_url(); ?>_32_inap" class="nav-link <?php echo $this->uri->segment(1) == '_32_inap' ? 'active' : ''; ?>">
+                                        <a href="<?php echo site_url(); ?>_31_inap" class="nav-link <?php echo $this->uri->segment(1) == '_31_inap' ? 'active' : ''; ?>">
                                             <i class="fas fa-bed nav-icon"></i>
                                             <p>
-                                            TAMU MENGINAP
+                                            MENGINAP
                                             </p>
                                         </a>
                                     </li>

@@ -406,6 +406,23 @@ class _08_tamu extends CI_Controller
         $this->load->view('_08_tamu/t08_tamu_doc',$data);
     }
 
+    public function getData()
+    {
+        $result = $this->_08_tamu_model->getData($this->input->get("search"));
+        if ($result) {
+            $list = array();
+            $key = 0;
+            foreach($result as $row) {
+                $list[$key]['id'] = $row->idtamu;
+                $list[$key]['text'] = $row->Nama . ' - ' . $row->NIK;
+                $key++;
+            }
+            echo json_encode($list);
+        } else {
+            echo "Tidak ada data";
+        }
+    }
+
 }
 
 /* End of file _08_tamu.php */
