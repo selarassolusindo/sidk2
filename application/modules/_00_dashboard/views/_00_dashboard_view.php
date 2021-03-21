@@ -635,6 +635,7 @@
                 $('.btn').addClass('btn-sm')
                 $('.table').addClass('table-sm')
                 $('.form-control').addClass('form-control-sm')
+                $('.input-group').addClass('input-group-sm')
             })
         </script>
 
