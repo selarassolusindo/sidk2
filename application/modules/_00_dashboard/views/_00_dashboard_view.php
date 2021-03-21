@@ -632,7 +632,7 @@
 
         <script>
             $(function () {
-                $('.btn').addClass('btn-xs')
+                $('.btn').addClass('btn-sm')
                 $('.table').addClass('table-sm')
                 $('.form-control').addClass('form-control-sm')
             })
