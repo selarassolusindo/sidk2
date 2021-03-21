@@ -135,12 +135,12 @@
 
     </head>
 
-    <body class="hold-transition sidebar-mini layout-fixed text-sm">
+    <body class="hold-transition sidebar-mini layout-fixed text-xs">
 
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light text-xs">
 
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
@@ -153,10 +153,10 @@
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar elevation-4 sidebar-light-lightblue">
+            <aside class="main-sidebar elevation-4 sidebar-light-lightblue text-xs">
 
                 <!-- Brand Logo -->
-                <a href="<?php echo site_url(); ?>" class="brand-link">
+                <a href="<?php echo site_url(); ?>" class="brand-link text-xs">
                     <img src="<?php echo base_url(); ?>assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                     <span class="brand-text font-weight-light"><?php echo SITE_NAME; ?></span>
@@ -632,7 +632,7 @@
 
         <script>
             $(function () {
-                $('.btn').addClass('btn-sm')
+                $('.btn').addClass('btn-xs')
                 $('.table').addClass('table-sm')
                 $('.form-control').addClass('form-control-sm')
             })
